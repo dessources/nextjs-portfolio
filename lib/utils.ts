@@ -50,3 +50,25 @@ export const throttle = <T extends (...args: any[]) => any>(
     }
   };
 };
+
+export const handleSmoothScroll = (
+  e: { preventDefault: () => void },
+  href: string,
+  setIsMenuOpen?: (open: boolean) => void
+) => {
+  e.preventDefault();
+
+  if (href.startsWith("#")) {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  }
+
+  // Close mobile menu if setter provided
+  if (setIsMenuOpen) {
+    setIsMenuOpen(false);
+  }
+};
