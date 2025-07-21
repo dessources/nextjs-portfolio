@@ -8,7 +8,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 
 const navigationItems = [
-  { name: "Home", href: "/" },
+  { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
@@ -24,6 +24,26 @@ const socialLinks = [
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleSmoothScroll = (e: { preventDefault: () => void }, href: string) => {
+    e.preventDefault();
+
+    if (href.startsWith("#")) {
+      const element = document.getElementById(href.slice(1));
+      if (element) {
+        const navHeight = 64; // Height of the fixed navigation
+        const elementPosition = element.offsetTop - navHeight;
+
+        window.scrollTo({
+          top: elementPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+
+    // Close mobile menu
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
       <div className="container mx-auto px-4">
@@ -37,9 +57,12 @@ export function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             {navigationItems.map((item) => (
               <Link
+                scroll={false}
                 key={item.name}
                 href={item.href}
-                className="text-sm font-medium hover:text-primary transition-colors">
+                onNavigate={(e) => handleSmoothScroll(e, item.href)}
+                onClick={(e) => handleSmoothScroll(e, item.href)}
+                className="text-sm font-medium hover:text-primary transition-colors cursor-pointer">
                 {item.name}
               </Link>
             ))}
@@ -83,8 +106,8 @@ export function Navigation() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-sm font-medium hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}>
+                  onClick={(e) => handleSmoothScroll(e, item.href)}
+                  className="text-sm font-medium hover:text-primary transition-colors cursor-pointer">
                   {item.name}
                 </Link>
               ))}

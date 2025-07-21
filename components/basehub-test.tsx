@@ -65,12 +65,12 @@ export async function BaseHubTest() {
             </div> 
           </div>
         )} */}
-      <Pump
+      {/* <Pump
         queries={queries}
         next={{ revalidate: 0 }}
         draft={(await draftMode()).isEnabled}>
         {render}
-      </Pump>
+      </Pump> */}
       <div>test 13 ok</div>
     </div>
   );

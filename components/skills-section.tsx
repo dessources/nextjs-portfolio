@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress-claude";
+import { SkillLevelBadge, type SkillLevel } from "@/components/skill-level-badge";
 import { Code2, Database, Server, Monitor, Wrench, BookOpen } from "lucide-react";
 
 const skillCategories = [
@@ -10,44 +10,44 @@ const skillCategories = [
     icon: Code2,
     title: "Programming Languages",
     skills: [
-      { name: "JavaScript/TypeScript", level: 85, learning: false },
-      { name: "Python", level: 75, learning: false },
-      { name: "Java", level: 70, learning: false },
-      { name: "C", level: 65, learning: true },
-      { name: "Go", level: 30, learning: true },
+      { name: "JavaScript/TypeScript", level: "expert" as SkillLevel, learning: false },
+      { name: "Python", level: "advanced" as SkillLevel, learning: false },
+      { name: "Java", level: "advanced" as SkillLevel, learning: false },
+      { name: "C", level: "advanced" as SkillLevel, learning: true },
+      { name: "Go", level: "beginner" as SkillLevel, learning: true },
     ],
   },
   {
     icon: Server,
     title: "Frameworks & Tools",
     skills: [
-      { name: "React/Next.js", level: 85, learning: false },
-      { name: "Node.js", level: 70, learning: false },
-      { name: "Docker", level: 40, learning: true },
-      { name: "Kubernetes", level: 20, learning: true },
-      { name: "AWS", level: 35, learning: true },
+      { name: "React/Next.js", level: "expert" as SkillLevel, learning: false },
+      { name: "Node.js", level: "advanced" as SkillLevel, learning: false },
+      { name: "Docker", level: "beginner" as SkillLevel, learning: true },
+      { name: "Kubernetes", level: "beginner" as SkillLevel, learning: true },
+      { name: "AWS", level: "beginner" as SkillLevel, learning: true },
     ],
   },
   {
     icon: Database,
     title: "Data & Systems",
     skills: [
-      { name: "PostgreSQL", level: 65, learning: false },
-      { name: "Redis", level: 45, learning: true },
-      { name: "System Design", level: 50, learning: true },
-      { name: "Performance Optimization", level: 60, learning: true },
-      { name: "Distributed Systems", level: 30, learning: true },
+      { name: "PostgreSQL", level: "advanced" as SkillLevel, learning: false },
+      { name: "Redis", level: "beginner" as SkillLevel, learning: true },
+      { name: "System Design", level: "advanced" as SkillLevel, learning: true },
+      { name: "Performance Optimization", level: "advanced" as SkillLevel, learning: true },
+      { name: "Distributed Systems", level: "beginner" as SkillLevel, learning: true },
     ],
   },
   {
     icon: Monitor,
     title: "Infrastructure & DevOps",
     skills: [
-      { name: "Git/GitHub", level: 80, learning: false },
-      { name: "CI/CD Pipelines", level: 50, learning: true },
-      { name: "Monitoring & Observability", level: 45, learning: true },
-      { name: "Linux/Unix", level: 55, learning: true },
-      { name: "Infrastructure as Code", level: 25, learning: true },
+      { name: "Git/GitHub", level: "expert" as SkillLevel, learning: false },
+      { name: "CI/CD Pipelines", level: "advanced" as SkillLevel, learning: true },
+      { name: "Monitoring & Observability", level: "beginner" as SkillLevel, learning: true },
+      { name: "Linux/Unix", level: "advanced" as SkillLevel, learning: true },
+      { name: "Infrastructure as Code", level: "beginner" as SkillLevel, learning: true },
     ],
   },
 ];
@@ -75,7 +75,7 @@ const currentLearning = [
 
 export function SkillsSection() {
   return (
-    <section className="py-24 bg-muted/30">
+    <section id="skills" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -112,21 +112,18 @@ export function SkillsSection() {
               </CardHeader>
               <CardContent className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium flex items-center gap-2">
+                  <div key={skill.name} className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm font-medium">
                         {skill.name}
-                        {skill.learning && (
-                          <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">
-                            Learning
-                          </span>
-                        )}
                       </span>
-                      <span className="text-sm text-muted-foreground">
-                        {skill.level}%
-                      </span>
+                      {skill.learning && (
+                        <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium dark:bg-blue-900/30 dark:text-blue-300">
+                          Learning
+                        </span>
+                      )}
                     </div>
-                    <Progress value={skill.level} className="h-2" />
+                    <SkillLevelBadge level={skill.level} />
                   </div>
                 ))}
               </CardContent>

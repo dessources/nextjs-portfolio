@@ -3,10 +3,11 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Database, Monitor } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/50 py-24 sm:py-32">
+    <section id="home" className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/50 py-24 sm:py-32">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -75,51 +76,70 @@ export function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative">
-            {/* System Architecture Visualization */}
-            <div className="relative aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-3xl"></div>
-              <div className="relative bg-card border rounded-2xl p-8 shadow-2xl">
-                <div className="grid grid-cols-3 gap-4">
-                  {/* Frontend Layer */}
-                  <div className="col-span-3 bg-primary/10 rounded-lg p-3 text-center">
-                    <div className="text-xs font-semibold text-primary">
-                      Frontend
-                    </div>
-                    <div className="text-xs text-muted-foreground mt-1">
-                      Next.js • React
-                    </div>
-                  </div>
+            {/* Profile Picture */}
+            <div className="relative w-80 h-80 mx-auto">
+              {/* Animated background glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-3xl animate-pulse-soft"></div>
 
-                  {/* API Layer */}
-                  <div className="col-span-3 bg-accent/30 rounded-lg p-3 text-center">
-                    <div className="text-xs font-semibold">API Layer</div>
-                    <div className="text-xs text-muted-foreground mt-1">
-                      REST • GraphQL
-                    </div>
-                  </div>
+              {/* Outer decorative ring */}
+              <div className="absolute inset-4 rounded-full border-2 border-primary/20 animate-float"></div>
 
-                  {/* Services */}
-                  <div className="bg-secondary rounded-lg p-2 text-center">
-                    <div className="text-xs font-medium">Auth</div>
-                  </div>
-                  <div className="bg-secondary rounded-lg p-2 text-center">
-                    <div className="text-xs font-medium">Cache</div>
-                  </div>
-                  <div className="bg-secondary rounded-lg p-2 text-center">
-                    <div className="text-xs font-medium">DB</div>
-                  </div>
-
-                  {/* Monitoring */}
-                  <div className="col-span-3 bg-destructive/10 rounded-lg p-3 text-center">
-                    <div className="text-xs font-semibold text-destructive">
-                      Monitoring & Observability
-                    </div>
-                    <div className="text-xs text-muted-foreground mt-1">
-                      Metrics • Logs • Traces
-                    </div>
-                  </div>
-                </div>
+              {/* Profile image container */}
+              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-background shadow-2xl">
+                <Image
+                  src="/Right-profile.jpeg"
+                  alt="Jaem Dessources - Systems Engineer"
+                  width={320}
+                  height={320}
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  style={{ objectPosition: "0 0" }}
+                  priority
+                />
               </div>
+
+              {/* Floating tech icons - positioned outside the image circle */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 25,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  repeatType: "loop",
+                }}
+                className="absolute inset-0">
+                {/* Code icon - positioned outside the circle at top-right */}
+                <div className="absolute -top-2 -right-2 bg-primary/10 p-3 rounded-full backdrop-blur-sm shadow-lg border border-primary/20">
+                  <Code className="h-4 w-4 text-primary" />
+                </div>
+                {/* Database icon - positioned outside the circle at bottom-left */}
+                <div className="absolute -bottom-2 -left-2 bg-primary/10 p-3 rounded-full backdrop-blur-sm shadow-lg border border-primary/20">
+                  <Database className="h-4 w-4 text-primary" />
+                </div>
+                {/* Monitor icon - positioned outside the circle at middle-left */}
+                <div className="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-primary/10 p-3 rounded-full backdrop-blur-sm shadow-lg border border-primary/20">
+                  <Monitor className="h-4 w-4 text-primary" />
+                </div>
+              </motion.div>
+
+              {/* Additional orbital icons for more visual interest */}
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 30,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  repeatType: "loop",
+                }}
+                className="absolute inset-0">
+                {/* Additional icon at top */}
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-accent/10 p-2 rounded-full backdrop-blur-sm shadow-lg border border-accent/20">
+                  <div className="w-3 h-3 bg-accent rounded-full"></div>
+                </div>
+                {/* Additional icon at bottom-right */}
+                <div className="absolute -bottom-1 -right-4 bg-accent/10 p-2 rounded-full backdrop-blur-sm shadow-lg border border-accent/20">
+                  <div className="w-3 h-3 bg-accent rounded-full"></div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
