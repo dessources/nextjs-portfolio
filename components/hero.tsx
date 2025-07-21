@@ -23,8 +23,8 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}>
-                Building <span className="text-primary">Scalable Systems</span> That
-                Perform
+                Building <span className="text-primary">Performant Systems</span>{" "}
+                That Scale
               </motion.h1>
               <motion.p
                 className="text-xl text-muted-foreground max-w-lg"
