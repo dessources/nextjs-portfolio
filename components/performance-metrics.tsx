@@ -83,7 +83,7 @@ export function PerformanceMetrics() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {metrics.map((metric, index) => (
+          {metrics.map((metric) => (
             <Card key={metric.title} className="text-center">
               <CardContent className="p-6">
                 <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
@@ -117,7 +117,7 @@ export function PerformanceMetrics() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-3">
-                {optimizations.map((optimization, index) => (
+                {optimizations.map((optimization) => (
                   <div
                     key={optimization}
                     className="flex items-center gap-2 text-sm">

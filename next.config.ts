@@ -6,9 +6,6 @@ const nextConfig = {
     domains: ['jaemdessources.com'],
     formats: ['image/webp', 'image/avif'],
   },
-  experimental: {
-    optimizeCss: true,
-  },
   // Performance optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Monitor, Zap, Shield } from "lucide-react";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 
 const projects = [
@@ -127,7 +127,7 @@ export function ProjectsSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
           className="grid lg:grid-cols-2 gap-8 mb-16">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <Card
               key={project.title}
               className={`group hover:shadow-lg transition-all duration-300 ${
@@ -230,7 +230,7 @@ export function ProjectsSection() {
             Systems Engineering Roadmap
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
-            {systemsProjects.map((project, index) => (
+            {systemsProjects.map((project) => (
               <Card key={project.title} className="border-dashed">
                 <CardContent className="p-6 text-center">
                   <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">

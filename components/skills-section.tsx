@@ -10,7 +10,11 @@ const skillCategories = [
     icon: Code2,
     title: "Programming Languages",
     skills: [
-      { name: "JavaScript/TypeScript", level: "expert" as SkillLevel, learning: false },
+      {
+        name: "JavaScript/TypeScript",
+        level: "expert" as SkillLevel,
+        learning: false,
+      },
       { name: "Python", level: "advanced" as SkillLevel, learning: false },
       { name: "Java", level: "advanced" as SkillLevel, learning: false },
       { name: "C", level: "advanced" as SkillLevel, learning: true },
@@ -35,8 +39,16 @@ const skillCategories = [
       { name: "PostgreSQL", level: "advanced" as SkillLevel, learning: false },
       { name: "Redis", level: "beginner" as SkillLevel, learning: true },
       { name: "System Design", level: "advanced" as SkillLevel, learning: true },
-      { name: "Performance Optimization", level: "advanced" as SkillLevel, learning: true },
-      { name: "Distributed Systems", level: "beginner" as SkillLevel, learning: true },
+      {
+        name: "Performance Optimization",
+        level: "advanced" as SkillLevel,
+        learning: true,
+      },
+      {
+        name: "Distributed Systems",
+        level: "beginner" as SkillLevel,
+        learning: true,
+      },
     ],
   },
   {
@@ -45,9 +57,17 @@ const skillCategories = [
     skills: [
       { name: "Git/GitHub", level: "expert" as SkillLevel, learning: false },
       { name: "CI/CD Pipelines", level: "advanced" as SkillLevel, learning: true },
-      { name: "Monitoring & Observability", level: "beginner" as SkillLevel, learning: true },
+      {
+        name: "Monitoring & Observability",
+        level: "beginner" as SkillLevel,
+        learning: true,
+      },
       { name: "Linux/Unix", level: "advanced" as SkillLevel, learning: true },
-      { name: "Infrastructure as Code", level: "beginner" as SkillLevel, learning: true },
+      {
+        name: "Infrastructure as Code",
+        level: "beginner" as SkillLevel,
+        learning: true,
+      },
     ],
   },
 ];
@@ -100,7 +120,7 @@ export function SkillsSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
           className="grid md:grid-cols-2 gap-8 mb-16">
-          {skillCategories.map((category, index) => (
+          {skillCategories.map((category) => (
             <Card key={category.title}>
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
@@ -111,12 +131,12 @@ export function SkillsSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name} className="flex items-center justify-between">
+                {category.skills.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <span className="text-sm font-medium">
-                        {skill.name}
-                      </span>
+                      <span className="text-sm font-medium">{skill.name}</span>
                       {skill.learning && (
                         <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium dark:bg-blue-900/30 dark:text-blue-300">
                           Learning
@@ -139,7 +159,7 @@ export function SkillsSection() {
           viewport={{ once: true }}>
           <h3 className="text-2xl font-bold mb-8 text-center">Currently Learning</h3>
           <div className="grid md:grid-cols-3 gap-6">
-            {currentLearning.map((item, index) => (
+            {currentLearning.map((item) => (
               <Card key={item.title} className="border-primary/20 bg-primary/5">
                 <CardContent className="p-6 text-center">
                   <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">

@@ -7,7 +7,9 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/50 py-24 sm:py-32">
+    <section
+      id="home"
+      className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/50 py-24 sm:py-32">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div

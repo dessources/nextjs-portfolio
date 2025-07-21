@@ -1,4 +1,3 @@
-// components/about-section.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -76,7 +75,7 @@ export function AboutSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
           className="grid md:grid-cols-2 gap-6 mb-16">
-          {traits.map((trait, index) => (
+          {traits.map((trait) => (
             <Card key={trait.title} className="border-0 shadow-md">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
@@ -100,7 +99,7 @@ export function AboutSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
           className="grid md:grid-cols-2 gap-8">
-          {currentFocus.map((item, index) => (
+          {currentFocus.map((item) => (
             <Card key={item.title} className="bg-card border">
               <CardContent className="p-8">
                 <div className="flex items-center gap-4 mb-4">

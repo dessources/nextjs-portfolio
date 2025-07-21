@@ -1,24 +1,24 @@
-import { Pump } from "basehub/react-pump";
+// import { Pump } from "basehub/react-pump";
 
-import { draftMode } from "next/headers";
+// import { draftMode } from "next/headers";
 
 export async function BaseHubTest() {
-  const queries = [
-    {
-      elementone: { test: true },
-    },
-  ];
+  // const queries = [
+  //   {
+  //     elementone: { test: true },
+  //   },
+  // ];
 
-  const render = async ([data]: [any]) => {
-    "use server";
+  // const render = async ([data]: [any]) => {
+  //   "use server";
 
-    return (
-      <>
-        <div>{data.elementone.test}</div>
-        <p>this now </p>
-      </>
-    );
-  };
+  //   return (
+  //     <>
+  //       <div>{data.elementone.test}</div>
+  //       <p>this now </p>
+  //     </>
+  //   );
+  // };
   return (
     <div className="p-8 border border-dashed border-gray-300 rounded-lg">
       <h2 className="text-xl font-bold mb-4">BaseHub Connection Tests</h2>

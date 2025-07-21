@@ -78,7 +78,7 @@ export function ContactSection() {
             viewport={{ once: true }}
             className="space-y-6">
             <h3 className="text-2xl font-semibold mb-6">Get In Touch</h3>
-            {contactMethods.map((method, index) => (
+            {contactMethods.map((method) => (
               <Card
                 key={method.title}
                 className={`group hover:shadow-md transition-all duration-300 ${
@@ -131,7 +131,7 @@ export function ContactSection() {
             <h3 className="text-2xl font-semibold mb-6">Areas of Interest</h3>
             <Card>
               <CardContent className="p-6 space-y-4">
-                {interestAreas.map((area, index) => (
+                {interestAreas.map((area) => (
                   <div key={area} className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
                     <span className="text-sm">{area}</span>
