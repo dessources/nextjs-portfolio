@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 
 const navigationItems = [
@@ -44,7 +45,7 @@ export function Navigation() {
             ))}
           </div>
 
-          {/* Desktop Social Links */}
+          {/* Desktop Social Links & Theme Toggle */}
           <div className="hidden md:flex items-center space-x-4">
             {socialLinks.map((social) => (
               <Button key={social.label} variant="ghost" size="icon" asChild>
@@ -57,6 +58,7 @@ export function Navigation() {
                 </Link>
               </Button>
             ))}
+            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
@@ -87,19 +89,22 @@ export function Navigation() {
                 </Link>
               ))}
 
-              {/* Mobile Social Links */}
-              <div className="flex items-center space-x-4 pt-4 border-t">
-                {socialLinks.map((social) => (
-                  <Button key={social.label} variant="ghost" size="icon" asChild>
-                    <Link
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label}>
-                      <social.icon className="h-4 w-4" />
-                    </Link>
-                  </Button>
-                ))}
+              {/* Mobile Social Links & Theme Toggle */}
+              <div className="flex items-center justify-between pt-4 border-t">
+                <div className="flex items-center space-x-4">
+                  {socialLinks.map((social) => (
+                    <Button key={social.label} variant="ghost" size="icon" asChild>
+                      <Link
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}>
+                        <social.icon className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                  ))}
+                </div>
+                <ThemeToggle />
               </div>
             </div>
           </motion.div>

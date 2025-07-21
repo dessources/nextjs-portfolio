@@ -9,7 +9,11 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "lighthouse": "lhci autorun",
-    "analyze": "cross-env ANALYZE=true next build"
+    "analyze": "cross-env ANALYZE=true next build",
+    "theme:original": "node switch-theme.js original",
+    "theme:electric": "node switch-theme.js electricBlue",
+    "theme:deep": "node switch-theme.js deepBlue",
+    "theme:neon": "node switch-theme.js neonBlue"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^14.2.0",
