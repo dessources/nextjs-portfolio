@@ -3,6 +3,7 @@ import { Hero } from "@/components/hero";
 import { AboutSection } from "@/components/about-section";
 import { ProjectsSection } from "@/components/projects-section";
 import { SkillsSection } from "@/components/skills-section";
+import { CredentialsSection } from "@/components/credentials-section";
 import { ContactSection } from "@/components/contact-section";
 import { PerformanceMetrics } from "@/components/performance-metrics";
 
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Hero />
       <AboutSection />
       <SkillsSection />
+      <CredentialsSection />
       <ProjectsSection />
       <PerformanceMetrics />
       <ContactSection />
