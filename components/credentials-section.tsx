@@ -370,7 +370,7 @@ export function CredentialsSection() {
               <div className="text-sm text-muted-foreground">Technology Domains</div>
             </div>
             <div className="bg-card p-6 rounded-lg border">
-              <div className="text-2xl font-bold text-primary mb-2">2024</div>
+              <div className="text-2xl font-bold text-primary mb-2">2025</div>
               <div className="text-sm text-muted-foreground">Recent Achievement</div>
             </div>
           </div>
