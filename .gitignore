@@ -193,3 +193,7 @@ lighthouse-results/
 .parcel-cache/
 .eslintcache
 .stylelintcache
+
+#LLMs
+claude-chat.txt
+claude.md
