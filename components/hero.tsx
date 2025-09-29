@@ -9,28 +9,33 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/50 py-24 sm:py-32">
+      className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/50 py-24 sm:py-32"
+    >
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8">
+            className="space-y-8"
+          >
             <div className="space-y-4">
               <motion.h1
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}>
-                Building <span className="text-primary">Performant Systems</span>{" "}
-                That Scale
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Building{" "}
+                <span className="text-primary">Performant Systems</span> That
+                Scale
               </motion.h1>
               <motion.p
                 className="text-xl text-muted-foreground max-w-lg"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}>
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
                 Systems Engineering student passionate about debugging complex
                 infrastructure, optimizing performance, and building reliable
                 distributed systems.
@@ -41,7 +46,8 @@ export function Hero() {
               className="flex flex-col sm:flex-row gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}>
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
               <Button asChild size="lg" className="group">
                 <Link href="/projects">
                   View My Projects
@@ -49,7 +55,14 @@ export function Hero() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/monitoring">Performance Dashboard</Link>
+                <Link
+                  target="_blank"
+                  href={
+                    "https://drive.google.com/file/d/1bhBkBwrzh36k9kkq6jj6B-N-s25ZTQ7Y/view?usp=drive_link"
+                  }
+                >
+                  My résumé
+                </Link>
               </Button>
             </motion.div>
 
@@ -57,7 +70,8 @@ export function Hero() {
               className="flex flex-wrap gap-6 pt-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}>
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Code className="h-4 w-4" />
                 <span>Next.js • React • TypeScript</span>
@@ -77,7 +91,8 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative">
+            className="relative"
+          >
             {/* Profile Picture */}
             <div className="relative w-80 h-80 mx-auto">
               {/* Animated background glow */}
@@ -108,7 +123,8 @@ export function Hero() {
                   ease: "easeInOut",
                   repeatType: "loop",
                 }}
-                className="absolute inset-0">
+                className="absolute inset-0"
+              >
                 {/* Code icon - positioned outside the circle at top-right */}
                 <div className="absolute -top-2 -right-2 bg-primary/10 p-3 rounded-full backdrop-blur-sm shadow-lg border border-primary/20">
                   <Code className="h-4 w-4 text-primary" />
@@ -132,7 +148,8 @@ export function Hero() {
                   ease: "easeInOut",
                   repeatType: "loop",
                 }}
-                className="absolute inset-0">
+                className="absolute inset-0"
+              >
                 {/* Additional icon at top */}
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-accent/10 p-2 rounded-full backdrop-blur-sm shadow-lg border border-accent/20">
                   <div className="w-3 h-3 bg-accent rounded-full"></div>
