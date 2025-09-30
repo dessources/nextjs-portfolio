@@ -91,7 +91,7 @@ const credentials = [
     category: "Networking",
     issueDate: "2024",
     verifyUrl: "https://www.certmetrics.com/comptia/public/verification.aspx",
-    certificateFile: "/credentials/CompTIA Network+ ce certificate.pdf",
+    certificateFile: "/credentials/CompTIA-Network-plus-ce-certificate.pdf",
     description: "Networking concepts and infrastructure management",
     skills: [
       "Network Configuration",
@@ -167,7 +167,7 @@ const credentials = [
 
 export function CredentialsSection() {
   const featuredCredentials = credentials.filter((cred) => cred.featured);
-  const otherCredentials = credentials.filter((cred) => !cred.featured);
+  // const otherCredentials = credentials.filter((cred) => !cred.featured);
 
   return (
     <section id="credentials" className="py-24 bg-muted/30">
@@ -300,7 +300,7 @@ export function CredentialsSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-semibold mb-8 text-center">
+          {/* <h3 className="text-2xl font-semibold mb-8 text-center">
             Additional Certifications
           </h3>
           <div className="flex flex-wrap justify-center gap-6">
@@ -372,11 +372,11 @@ export function CredentialsSection() {
                 </CardContent>
               </Card>
             ))}
-          </div>
+          </div> */}
         </motion.div>
 
         {/* Credential Stats */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -405,7 +405,7 @@ export function CredentialsSection() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
