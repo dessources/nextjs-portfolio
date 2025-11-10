@@ -1,10 +1,10 @@
-import basehub from "basehub";
+// import basehub from "basehub";
 
-export default defineConfig({
-  basehub: {
-    token: process.env.BASEHUB_TOKEN!,
-  },
-  experimental: {
-    typedFieldsInGenerics: true,
-  },
-});
+// export default defineConfig({
+//   basehub: {
+//     token: process.env.BASEHUB_TOKEN!,
+//   },
+//   experimental: {
+//     typedFieldsInGenerics: true,
+//   },
+// });
