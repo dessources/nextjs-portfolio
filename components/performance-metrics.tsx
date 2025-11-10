@@ -3,14 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  TrendingUp,
-  Zap,
-  Shield,
-  Clock,
-  BarChart3,
-  ExternalLink,
-} from "lucide-react";
+import { TrendingUp, Zap, Shield, Clock, BarChart3 } from "lucide-react";
 import Link from "next/link";
 
 const metrics = [
@@ -50,11 +43,9 @@ const metrics = [
 
 const optimizations = [
   "Next.js Image Optimization",
-  "Advanced Code Splitting",
-  "CDN Implementation",
-  "Database Query Optimization",
+  "Code Splitting",
+  "Implemented a headless CMS (Basehub)",
   "Real-time Performance Monitoring",
-  "Automated Performance Testing",
 ];
 
 export function PerformanceMetrics() {
@@ -66,13 +57,15 @@ export function PerformanceMetrics() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16">
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Performance Engineering
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Real metrics from migrating this portfolio from WordPress to Next.js.
-            Demonstrating the impact of systematic performance optimization.
+            Real metrics from migrating this portfolio from WordPress to
+            Next.js. Demonstrating the impact of systematic performance
+            optimization.
           </p>
         </motion.div>
 
@@ -82,7 +75,8 @@ export function PerformanceMetrics() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+        >
           {metrics.map((metric) => (
             <Card key={metric.title} className="text-center">
               <CardContent className="p-6">
@@ -107,20 +101,22 @@ export function PerformanceMetrics() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="grid lg:grid-cols-2 gap-8 mb-12">
+          className="grid lg:grid-cols-1 w-[70%] m-auto gap-8 mb-12"
+        >
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
+              <CardTitle className="flex items-center align-center gap-2 ">
                 <BarChart3 className="h-5 w-5" />
                 Optimization Techniques Applied
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid  gap-3">
                 {optimizations.map((optimization) => (
                   <div
                     key={optimization}
-                    className="flex items-center gap-2 text-sm">
+                    className="flex items-center gap-2 text-sm"
+                  >
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
                     {optimization}
                   </div>
@@ -129,14 +125,14 @@ export function PerformanceMetrics() {
             </CardContent>
           </Card>
 
-          <Card className="bg-primary/5 border-primary/20">
+          {/* <Card className="bg-primary/5 border-primary/20">
             <CardHeader>
               <CardTitle>Performance Philosophy</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-sm text-muted-foreground">
-                "I prefer finding and fixing the root cause of performance issues
-                rather than just throwing more resources at the problem."
+                "I prefer finding and fixing the root cause of performance
+                issues rather than just throwing more resources at the problem."
               </p>
               <p className="text-sm text-muted-foreground">
                 This approach demonstrates the analytical mindset essential for
@@ -152,7 +148,7 @@ export function PerformanceMetrics() {
                 </Button>
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
         </motion.div>
 
         {/* Call to Action */}
@@ -161,7 +157,8 @@ export function PerformanceMetrics() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          className="text-center">
+          className="text-center"
+        >
           <Card className="max-w-2xl mx-auto">
             <CardContent className="p-8">
               <h3 className="text-xl font-semibold mb-4">

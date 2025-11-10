@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code, Database, Monitor } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -65,26 +65,6 @@ export function Hero() {
                 </Link>
               </Button>
             </motion.div>
-
-            <motion.div
-              className="flex flex-wrap gap-6 pt-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Code className="h-4 w-4" />
-                <span>Next.js • React • TypeScript</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Database className="h-4 w-4" />
-                <span>Systems Programming • C • Java</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Monitor className="h-4 w-4" />
-                <span>Performance Optimization</span>
-              </div>
-            </motion.div>
           </motion.div>
 
           <motion.div
@@ -115,7 +95,7 @@ export function Hero() {
               </div>
 
               {/* Floating tech icons - positioned outside the image circle */}
-              <motion.div
+              {/* <motion.div
                 animate={{ rotate: 360 }}
                 transition={{
                   duration: 25,
@@ -125,22 +105,11 @@ export function Hero() {
                 }}
                 className="absolute inset-0"
               >
-                {/* Code icon - positioned outside the circle at top-right */}
-                <div className="absolute -top-2 -right-2 bg-primary/10 p-3 rounded-full backdrop-blur-sm shadow-lg border border-primary/20">
-                  <Code className="h-4 w-4 text-primary" />
-                </div>
-                {/* Database icon - positioned outside the circle at bottom-left */}
-                <div className="absolute -bottom-2 -left-2 bg-primary/10 p-3 rounded-full backdrop-blur-sm shadow-lg border border-primary/20">
-                  <Database className="h-4 w-4 text-primary" />
-                </div>
-                {/* Monitor icon - positioned outside the circle at middle-left */}
-                <div className="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-primary/10 p-3 rounded-full backdrop-blur-sm shadow-lg border border-primary/20">
-                  <Monitor className="h-4 w-4 text-primary" />
-                </div>
-              </motion.div>
+           
+           
 
               {/* Additional orbital icons for more visual interest */}
-              <motion.div
+              {/* <motion.div
                 animate={{ rotate: -360 }}
                 transition={{
                   duration: 30,
@@ -149,16 +118,17 @@ export function Hero() {
                   repeatType: "loop",
                 }}
                 className="absolute inset-0"
-              >
-                {/* Additional icon at top */}
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-accent/10 p-2 rounded-full backdrop-blur-sm shadow-lg border border-accent/20">
+              > */}
+              {/* Additional icon at top */}
+              {/* <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-accent/10 p-2 rounded-full backdrop-blur-sm shadow-lg border border-accent/20">
                   <div className="w-3 h-3 bg-accent rounded-full"></div>
-                </div>
-                {/* Additional icon at bottom-right */}
-                <div className="absolute -bottom-1 -right-4 bg-accent/10 p-2 rounded-full backdrop-blur-sm shadow-lg border border-accent/20">
+                </div> */}
+              {/* Additional icon at bottom-right */}
+              {/* <div className="absolute -bottom-1 -right-4 bg-accent/10 p-2 rounded-full backdrop-blur-sm shadow-lg border border-accent/20">
                   <div className="w-3 h-3 bg-accent rounded-full"></div>
                 </div>
               </motion.div>
+               */}
             </div>
           </motion.div>
         </div>

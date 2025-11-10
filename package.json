@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"basehub dev\" \"next dev\"",
+    "dev": "concurrently \"basehub dev\" \"next dev --turbopack\"",
     "build": "basehub && next build",
     "start": "next start",
     "lint": "next lint",

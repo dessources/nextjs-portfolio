@@ -42,7 +42,7 @@ const contactMethods = [
 
 const interestAreas = [
   "Systems Engineering Opportunities",
-  "Performance Optimization Projects",
+  "Performance Optimization",
   "Infrastructure & Backend Development",
   "Site Reliability Engineering Roles",
   "Technical Mentorship",
@@ -58,14 +58,16 @@ export function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16">
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Let's Build Something Reliable Together
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Interested in discussing systems engineering, performance optimization,
-            or potential collaboration? I'm always excited to connect with fellow
-            engineers and learn from experienced professionals.
+            Interested in discussing systems engineering, performance
+            optimization, or potential collaboration? I'm always excited to
+            connect with fellow engineers and learn from experienced
+            professionals.
           </p>
         </motion.div>
 
@@ -76,23 +78,28 @@ export function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="space-y-6">
+            className="space-y-6"
+          >
             <h3 className="text-2xl font-semibold mb-6">Get In Touch</h3>
             {contactMethods.map((method) => (
               <Card
                 key={method.title}
                 className={`group hover:shadow-md transition-all duration-300 ${
                   method.primary ? "border-primary/30" : ""
-                }`}>
+                }`}
+              >
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div
                       className={`p-3 rounded-lg ${
                         method.primary ? "bg-primary/10" : "bg-secondary"
-                      }`}>
+                      }`}
+                    >
                       <method.icon
                         className={`h-5 w-5 ${
-                          method.primary ? "text-primary" : "text-muted-foreground"
+                          method.primary
+                            ? "text-primary"
+                            : "text-muted-foreground"
                         }`}
                       />
                     </div>
@@ -105,11 +112,13 @@ export function ContactSection() {
                         asChild
                         variant="outline"
                         size="sm"
-                        className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                        className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                      >
                         <Link
                           href={method.href}
                           target="_blank"
-                          rel="noopener noreferrer">
+                          rel="noopener noreferrer"
+                        >
                           {method.value}
                           <ExternalLink className="ml-2 h-3 w-3" />
                         </Link>
@@ -127,7 +136,8 @@ export function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="space-y-6">
+            className="space-y-6"
+          >
             <h3 className="text-2xl font-semibold mb-6">Areas of Interest</h3>
             <Card>
               <CardContent className="p-6 space-y-4">
@@ -148,7 +158,8 @@ export function ContactSection() {
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">
                   Coming soon: Video series where I discuss systems engineering
-                  concepts, debug complex problems, and share my learning journey.
+                  concepts, debug complex problems, and share my learning
+                  journey.
                 </p>
                 <Button variant="outline" size="sm" disabled>
                   <Calendar className="mr-2 h-4 w-4" />
@@ -162,8 +173,8 @@ export function ContactSection() {
                 <CardContent className="p-6">
                   <h4 className="font-semibold mb-2">Current Status</h4>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Full-time student working towards graduation in Fall 2026. Open
-                    to internships, part-time opportunities, and technical
+                    Full-time student working towards graduation in Fall 2026.
+                    Open to internships, part-time opportunities, and technical
                     discussions.
                   </p>
                   <div className="text-xs text-primary font-medium">

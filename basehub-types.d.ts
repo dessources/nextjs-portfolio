@@ -46,8 +46,7 @@ export interface Scalars {
   options: string[];
   multiple: boolean
 } | {
-  type: "file";
-  private: boolean
+  type: "file"
 }))[],
     BSHBRichTextContentSchema: RichTextNode[],
     BSHBRichTextTOCSchema: RichTextTocNode[],
@@ -100,7 +99,7 @@ export interface BlockColor {
     __typename: 'BlockColor'
 }
 
-export type BlockDocument = (Elementone | _AgentSTART) & { __isUnion?: true }
+export type BlockDocument = (Elementone | Hero | ResumeLink | _AgentStart) & { __isUnion?: true }
 
 export interface BlockDocumentSys {
     apiNamePath: Scalars['String']
@@ -225,6 +224,20 @@ export interface GetUploadSignedURL {
     __typename: 'GetUploadSignedURL'
 }
 
+export interface Hero {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    resumeLink: ResumeLink
+    resumeLink_1: (Scalars['String'] | null)
+    __typename: 'Hero'
+}
+
 export interface ListMeta {
     /** Number of items after applying filters but before pagination */
     filteredCount: Scalars['Int']
@@ -271,18 +284,23 @@ export interface Mutation {
 }
 
 export interface Query {
-    _agent: (_AgentSTART | null)
+    _agent: (_AgentStart | null)
     /** Query across the custom AI agents in the repository. */
     _agents: _agents
+    /** The diff between the current branch and the head commit. */
+    _diff: Scalars['JSON']
     /** The structure of the repository. Used by START. */
     _structure: Scalars['JSON']
     _sys: RepoSys
     elementone: Elementone
+    hero: Hero
     __typename: 'Query'
 }
 
 export interface RepoSys {
     branches: _Branches
+    dashboardUrl: Scalars['String']
+    forkUrl: Scalars['String']
     hash: Scalars['String']
     id: Scalars['ID']
     playgroundInfo: (_PlaygroundInfo | null)
@@ -291,7 +309,28 @@ export interface RepoSys {
     __typename: 'RepoSys'
 }
 
+export interface ResumeLink {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    resumeLink: (Scalars['String'] | null)
+    __typename: 'ResumeLink'
+}
+
 export type RichTextJson = (BaseRichTextJson) & { __isUnion?: true }
+
+export interface SearchHighlight {
+    /** The field/path that was matched (e.g., "title", "body.content") */
+    by: Scalars['String']
+    /** HTML snippet with <mark> tags around the matched terms */
+    snippet: Scalars['String']
+    __typename: 'SearchHighlight'
+}
 
 export interface TransactionStatus {
     /** Duration in milliseconds. */
@@ -315,7 +354,7 @@ export interface Variant {
     __typename: 'Variant'
 }
 
-export interface _AgentSTART {
+export interface _AgentStart {
     _agentKey: Scalars['String']
     _analyticsKey: Scalars['String']
     _dashboardUrl: Scalars['String']
@@ -337,10 +376,11 @@ export interface _AgentSTART {
     manageBranches: Scalars['Boolean']
     mcpUrl: Scalars['String']
     model: Scalars['String']
+    openRouterKey: (Scalars['String'] | null)
     searchTheWeb: Scalars['Boolean']
     slackInstallUrl: Scalars['String']
     systemPrompt: Scalars['String']
-    __typename: '_AgentSTART'
+    __typename: '_AgentStart'
 }
 
 export interface _BranchInfo {
@@ -409,7 +449,7 @@ export type _ResolveTargetsWithEnum = 'id' | 'objectName'
 export type _StructureFormatEnum = 'json' | 'xml'
 
 export interface _agents {
-    start: _AgentSTART
+    start: _AgentStart
     __typename: '_agents'
 }
 
@@ -468,7 +508,9 @@ export interface BlockDocumentGenqlSelection{
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
     on_Elementone?: ElementoneGenqlSelection
-    on__AgentSTART?: _AgentSTARTGenqlSelection
+    on_Hero?: HeroGenqlSelection
+    on_ResumeLink?: ResumeLinkGenqlSelection
+    on__AgentStart?: _AgentStartGenqlSelection
     __typename?: boolean | number
 }
 
@@ -615,6 +657,26 @@ export interface GetUploadSignedURLGenqlSelection{
     __typename?: boolean | number
 }
 
+export interface HeroGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    resumeLink?: ResumeLinkGenqlSelection
+    resumeLink_1?: boolean | number
+    __typename?: boolean | number
+}
+
 export interface ListFilter {isEmpty?: (Scalars['Boolean'] | null),length?: (Scalars['Int'] | null)}
 
 export interface ListMetaGenqlSelection{
@@ -707,11 +769,15 @@ export interface MutationGenqlSelection{
 export interface NumberFilter {eq?: (Scalars['Float'] | null),gt?: (Scalars['Float'] | null),gte?: (Scalars['Float'] | null),isNull?: (Scalars['Boolean'] | null),lt?: (Scalars['Float'] | null),lte?: (Scalars['Float'] | null),neq?: (Scalars['Float'] | null)}
 
 export interface QueryGenqlSelection{
-    _agent?: (_AgentSTARTGenqlSelection & { __args: {
+    _agent?: (_AgentStartGenqlSelection & { __args: {
     /** The ID of the agent. */
     id: Scalars['String']} })
     /** Query across the custom AI agents in the repository. */
     _agents?: _agentsGenqlSelection
+    /** The diff between the current branch and the head commit. */
+    _diff?: { __args: {
+    /** Simplified diff returns only the items array showing statuses. */
+    simplified?: (Scalars['Boolean'] | null)} } | boolean | number
     /** The structure of the repository. Used by START. */
     _structure?: { __args: {
     /** The format of the structure. */
@@ -728,11 +794,14 @@ export interface QueryGenqlSelection{
     withTypeOptions?: (Scalars['Boolean'] | null)} } | boolean | number
     _sys?: RepoSysGenqlSelection
     elementone?: ElementoneGenqlSelection
+    hero?: HeroGenqlSelection
     __typename?: boolean | number
 }
 
 export interface RepoSysGenqlSelection{
     branches?: (_BranchesGenqlSelection & { __args?: {limit?: (Scalars['Int'] | null), offset?: (Scalars['Int'] | null)} })
+    dashboardUrl?: boolean | number
+    forkUrl?: boolean | number
     hash?: boolean | number
     id?: boolean | number
     playgroundInfo?: _PlaygroundInfoGenqlSelection
@@ -741,10 +810,37 @@ export interface RepoSysGenqlSelection{
     __typename?: boolean | number
 }
 
+export interface ResumeLinkGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    resumeLink?: boolean | number
+    __typename?: boolean | number
+}
+
 export interface RichTextJsonGenqlSelection{
     content?: boolean | number
     toc?: boolean | number
     on_BaseRichTextJson?: BaseRichTextJsonGenqlSelection
+    __typename?: boolean | number
+}
+
+export interface SearchHighlightGenqlSelection{
+    /** The field/path that was matched (e.g., "title", "body.content") */
+    by?: boolean | number
+    /** HTML snippet with <mark> tags around the matched terms */
+    snippet?: boolean | number
     __typename?: boolean | number
 }
 
@@ -776,7 +872,7 @@ export interface VariantGenqlSelection{
     __typename?: boolean | number
 }
 
-export interface _AgentSTARTGenqlSelection{
+export interface _AgentStartGenqlSelection{
     _agentKey?: boolean | number
     _analyticsKey?: { __args: {
     /**
@@ -804,6 +900,7 @@ export interface _AgentSTARTGenqlSelection{
     manageBranches?: boolean | number
     mcpUrl?: boolean | number
     model?: boolean | number
+    openRouterKey?: boolean | number
     searchTheWeb?: boolean | number
     slackInstallUrl?: boolean | number
     systemPrompt?: boolean | number
@@ -872,7 +969,7 @@ export interface _PlaygroundInfoGenqlSelection{
 }
 
 export interface _agentsGenqlSelection{
-    start?: _AgentSTARTGenqlSelection
+    start?: _AgentStartGenqlSelection
     __typename?: boolean | number
 }
 
@@ -933,6 +1030,10 @@ export interface FragmentsMap {
     root: GetUploadSignedURL,
     selection: GetUploadSignedURLGenqlSelection,
 }
+  Hero: {
+    root: Hero,
+    selection: HeroGenqlSelection,
+}
   ListMeta: {
     root: ListMeta,
     selection: ListMetaGenqlSelection,
@@ -953,9 +1054,17 @@ export interface FragmentsMap {
     root: RepoSys,
     selection: RepoSysGenqlSelection,
 }
+  ResumeLink: {
+    root: ResumeLink,
+    selection: ResumeLinkGenqlSelection,
+}
   RichTextJson: {
     root: RichTextJson,
     selection: RichTextJsonGenqlSelection,
+}
+  SearchHighlight: {
+    root: SearchHighlight,
+    selection: SearchHighlightGenqlSelection,
 }
   TransactionStatus: {
     root: TransactionStatus,
@@ -965,9 +1074,9 @@ export interface FragmentsMap {
     root: Variant,
     selection: VariantGenqlSelection,
 }
-  _AgentSTART: {
-    root: _AgentSTART,
-    selection: _AgentSTARTGenqlSelection,
+  _AgentStart: {
+    root: _AgentStart,
+    selection: _AgentStartGenqlSelection,
 }
   _BranchInfo: {
     root: _BranchInfo,

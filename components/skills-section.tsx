@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SkillLevelBadge, type SkillLevel } from "@/components/skill-level-badge";
-import { Code2, Database, Server, Monitor, Wrench, BookOpen } from "lucide-react";
+import {
+  SkillLevelBadge,
+  type SkillLevel,
+} from "@/components/skill-level-badge";
+import { Code2, Database, Server, Monitor, Wrench, Cog } from "lucide-react";
 
 const skillCategories = [
   {
@@ -38,7 +41,11 @@ const skillCategories = [
     skills: [
       { name: "PostgreSQL", level: "advanced" as SkillLevel, learning: false },
       { name: "Redis", level: "beginner" as SkillLevel, learning: true },
-      { name: "System Design", level: "advanced" as SkillLevel, learning: true },
+      {
+        name: "System Design",
+        level: "advanced" as SkillLevel,
+        learning: true,
+      },
       {
         name: "Performance Optimization",
         level: "advanced" as SkillLevel,
@@ -56,7 +63,11 @@ const skillCategories = [
     title: "Infrastructure & DevOps",
     skills: [
       { name: "Git/GitHub", level: "expert" as SkillLevel, learning: false },
-      { name: "CI/CD Pipelines", level: "advanced" as SkillLevel, learning: true },
+      {
+        name: "CI/CD Pipelines",
+        level: "advanced" as SkillLevel,
+        learning: true,
+      },
       {
         name: "Monitoring & Observability",
         level: "beginner" as SkillLevel,
@@ -74,21 +85,21 @@ const skillCategories = [
 
 const currentLearning = [
   {
-    icon: BookOpen,
+    icon: Cog,
     title: "Computer Architecture",
-    description: "Understanding hardware-software performance relationships",
+
     course: "CDA3102 - Fall 2025",
   },
   {
     icon: Wrench,
     title: "Systems Programming",
-    description: "Low-level programming, system calls, and OS interaction",
+
     course: "COP4338 - Fall 2025",
   },
   {
     icon: Database,
     title: "Data Structures",
-    description: "Advanced data structures with performance optimization focus",
+
     course: "COP3550 - Fall 2025",
   },
 ];
@@ -102,14 +113,15 @@ export function SkillsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16">
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Technical Skills & Learning Journey
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Building expertise in systems engineering through hands-on projects and
-            formal coursework. Continuously learning and applying new technologies to
-            solve complex problems.
+            Building expertise in systems engineering through hands-on projects
+            and formal coursework. Continuously learning and applying new
+            technologies to solve complex problems.
           </p>
         </motion.div>
 
@@ -119,7 +131,8 @@ export function SkillsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-8 mb-16">
+          className="grid md:grid-cols-2 gap-8 mb-16"
+        >
           {skillCategories.map((category) => (
             <Card key={category.title}>
               <CardHeader>
@@ -134,7 +147,8 @@ export function SkillsSection() {
                 {category.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-center justify-between">
+                    className="flex items-center justify-between"
+                  >
                     <div className="flex items-center gap-3">
                       <span className="text-sm font-medium">{skill.name}</span>
                       {skill.learning && (
@@ -156,8 +170,11 @@ export function SkillsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}>
-          <h3 className="text-2xl font-bold mb-8 text-center">Currently Learning</h3>
+          viewport={{ once: true }}
+        >
+          <h3 className="text-2xl font-bold mb-8 text-center">
+            Currently Learning
+          </h3>
           <div className="grid md:grid-cols-3 gap-6">
             {currentLearning.map((item) => (
               <Card key={item.title} className="border-primary/20 bg-primary/5">
@@ -166,9 +183,7 @@ export function SkillsSection() {
                     <item.icon className="h-6 w-6 text-primary" />
                   </div>
                   <h4 className="font-semibold mb-2">{item.title}</h4>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    {item.description}
-                  </p>
+
                   <div className="text-xs text-primary font-medium">
                     {item.course}
                   </div>

@@ -24,7 +24,7 @@ const credentials = [
     icon: Cloud,
     logo: "/logos/saa-c03.png",
     category: "Cloud Architecture",
-    issueDate: "2024",
+    issueDate: "May 2024",
     verifyUrl: "https://aws.amazon.com/verification",
     certificateFile:
       "/credentials/AWS Certified Solutions Architect - Associate certificate.pdf",
@@ -68,7 +68,7 @@ const credentials = [
     icon: Shield,
     logo: "/logos/securityplus-logo.png",
     category: "Cybersecurity",
-    issueDate: "2024",
+    issueDate: "October 2023",
     verifyUrl: "https://www.certmetrics.com/comptia/public/verification.aspx",
     certificateFile: "/credentials/CompTIA Security+ ce certificate.pdf",
     description: "Foundation-level cybersecurity skills and knowledge",
@@ -89,7 +89,7 @@ const credentials = [
     icon: Network,
     logo: "/logos/comptia network+.png",
     category: "Networking",
-    issueDate: "2024",
+    issueDate: "August 2023",
     verifyUrl: "https://www.certmetrics.com/comptia/public/verification.aspx",
     certificateFile: "/credentials/CompTIA-Network-plus-ce-certificate.pdf",
     description: "Networking concepts and infrastructure management",
@@ -199,7 +199,7 @@ export function CredentialsSection() {
           <h3 className="text-2xl font-semibold mb-8 text-center">
             Core Certifications
           </h3>
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="flex flex-wrap justify-start gap-8">
             {featuredCredentials.map((credential) => (
               <Card
                 key={credential.id}
@@ -225,12 +225,12 @@ export function CredentialsSection() {
                   <p className="text-sm text-muted-foreground font-medium">
                     {credential.level}
                   </p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-muted-foreground text-center">
                     {credential.provider}
                   </p>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground text-center">
                     {credential.description}
                   </p>
 
@@ -292,120 +292,6 @@ export function CredentialsSection() {
             ))}
           </div>
         </motion.div>
-
-        {/* Additional Credentials */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          {/* <h3 className="text-2xl font-semibold mb-8 text-center">
-            Additional Certifications
-          </h3>
-          <div className="flex flex-wrap justify-center gap-6">
-            {otherCredentials.map((credential) => (
-              <Card
-                key={credential.id}
-                className="group hover:shadow-md transition-all duration-300 w-full max-w-xs"
-              >
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 rounded-lg bg-white border border-gray-200 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 shadow-sm">
-                    {credential.logo ? (
-                      <Image
-                        src={credential.logo}
-                        alt={`${credential.title} logo`}
-                        width={40}
-                        height={40}
-                        className="object-contain"
-                      />
-                    ) : (
-                      <credential.icon className="w-6 h-6 text-gray-600" />
-                    )}
-                  </div>
-                  <h4 className="font-semibold text-sm mb-1">
-                    {credential.title}
-                  </h4>
-                  <p className="text-xs text-muted-foreground mb-2">
-                    {credential.level}
-                  </p>
-                  <p className="text-xs text-muted-foreground mb-3">
-                    {credential.provider}
-                  </p>
-
-                  <div className="flex gap-1 mb-3">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex-1 text-xs px-2 py-1 h-7"
-                      asChild
-                    >
-                      <a
-                        href={credential.certificateFile}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        View
-                      </a>
-                    </Button>
-                    <Button
-                      variant="default"
-                      size="sm"
-                      className="flex-1 text-xs px-2 py-1 h-7"
-                      asChild
-                    >
-                      <a
-                        href={credential.verifyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <ExternalLink className="w-3 h-3 mr-1" />
-                        Verify
-                      </a>
-                    </Button>
-                  </div>
-
-                  <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
-                    <CheckCircle className="w-3 h-3 text-green-500" />
-                    <span>{credential.issueDate}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div> */}
-        </motion.div>
-
-        {/* Credential Stats */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
-            <div className="bg-card p-6 rounded-lg border">
-              <div className="text-2xl font-bold text-primary mb-2">
-                {credentials.length}
-              </div>
-              <div className="text-sm text-muted-foreground">
-                Active Certifications
-              </div>
-            </div>
-            <div className="bg-card p-6 rounded-lg border">
-              <div className="text-2xl font-bold text-primary mb-2">4</div>
-              <div className="text-sm text-muted-foreground">
-                Technology Domains
-              </div>
-            </div>
-            <div className="bg-card p-6 rounded-lg border">
-              <div className="text-2xl font-bold text-primary mb-2">2025</div>
-              <div className="text-sm text-muted-foreground">
-                Recent Achievement
-              </div>
-            </div>
-          </div>
-        </motion.div> */}
       </div>
     </section>
   );

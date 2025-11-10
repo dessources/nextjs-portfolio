@@ -5,7 +5,7 @@ import { ProjectsSection } from "@/components/projects-section";
 import { SkillsSection } from "@/components/skills-section";
 import { CredentialsSection } from "@/components/credentials-section";
 import { ContactSection } from "@/components/contact-section";
-import { PerformanceMetrics } from "@/components/performance-metrics";
+//import { PerformanceMetrics } from "@/components/performance-metrics";
 
 export default function HomePage() {
   return (
@@ -18,7 +18,7 @@ export default function HomePage() {
       <SkillsSection />
       <CredentialsSection />
       <ProjectsSection />
-      <PerformanceMetrics />
+      {/* <PerformanceMetrics /> */}
       <ContactSection />
     </>
   );
