@@ -1,11 +1,14 @@
 "use client";
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { handleSmoothScroll } from "@/lib/utils";
+import type { Hero } from "basehub-types";
 
-export function Hero() {
+export function Hero({ hero }: { hero: Hero }) {
   return (
     <section
       id="home"
@@ -36,9 +39,7 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Systems Engineering student passionate about debugging complex
-                infrastructure, optimizing performance, and building reliable
-                distributed systems.
+                {hero.subHeadline}
               </motion.p>
             </div>
 
@@ -49,7 +50,10 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <Button asChild size="lg" className="group">
-                <Link href="/projects">
+                <Link
+                  href="#projects"
+                  onClick={(e) => handleSmoothScroll(e, "#projects")}
+                >
                   View My Projects
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
@@ -58,7 +62,7 @@ export function Hero() {
                 <Link
                   target="_blank"
                   href={
-                    "https://drive.google.com/file/d/1bhBkBwrzh36k9kkq6jj6B-N-s25ZTQ7Y/view?usp=drive_link"
+                    "https://drive.google.com/file/d/1Av_lAg00CgQRie3Xh_lp_o9LYaUsu6sB/view?usp=sharing"
                   }
                 >
                   My résumé

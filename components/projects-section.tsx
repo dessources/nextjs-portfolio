@@ -11,6 +11,24 @@ import Link from "next/link";
 
 const projects = [
   {
+    title: "URL Shortener with Rate Limiting",
+    description:
+      "A URL shortening service protected by two layers of rate limiting, written in Go. Features live metrics via SSE and isolated stress testing.",
+    image: "/projects/url-shortener-preview.jpg",
+    url: "https://pety.to",
+    github: "https://github.com/dessources/Go_rate_limited_url_shortener",
+    technologies: ["Go", "React/Next.js", "Docker", "SSE", "shadcn/ui"],
+    highlights: [
+      "Token Bucket algorithm for global rate limiting",
+      "Sliding Window Log for per-client rate limiting",
+      "Real-time metrics streamed via Server-Sent Events",
+      "Dockerized deployment with full env-based configuration",
+    ],
+    category: "Systems",
+    status: "Production",
+    featured: true,
+  },
+  {
     title: "iChat - Real-time Communication",
     description:
       "React-based chat application with real-time messaging, user authentication, and performance optimizations.",
@@ -26,29 +44,29 @@ const projects = [
     category: "Full Stack",
     status: "Production",
   },
-  {
-    title: "Death Wish Coffee - Brand Site",
-    description:
-      "High-performance marketing website with optimized loading times and responsive design.",
-    image: "/projects/deathwish-preview.jpg",
-    url: "https://deathwishcoffee.jaemdessources.com/",
-    github: "https://github.com/dessources/Death-Wish-Coffee",
-    technologies: ["Next.js", "Responsive Design", "Performance Optimization"],
-    highlights: [
-      "Sub-second loading times",
-      "Mobile-first responsive design",
-      "SEO optimized architecture",
-    ],
-    category: "Frontend",
-    status: "Production",
-  },
+  // {
+  //   title: "Death Wish Coffee - Brand Site",
+  //   description:
+  //     "High-performance marketing website with optimized loading times and responsive design.",
+  //   image: "/projects/deathwish-preview.jpg",
+  //   url: "https://deathwishcoffee.jaemdessources.com/",
+  //   github: "https://github.com/dessources/Death-Wish-Coffee",
+  //   technologies: ["Next.js", "Responsive Design", "Performance Optimization"],
+  //   highlights: [
+  //     "Sub-second loading times",
+  //     "Mobile-first responsive design",
+  //     "SEO optimized architecture",
+  //   ],
+  //   category: "Frontend",
+  //   status: "Production",
+  // },
 
   {
     title: "PantherKolab - Campus Collaboration Platform",
     description:
       "Student-focused communication and collaboration platform with real-time messaging, voice/video calls, and AI-powered features.",
     image: "/projects/pantherkolab-preview.jpg",
-    url: "https://github.com/dessources/PantherKolab",
+    url: "https://pantherkolab.com",
     github: "https://github.com/dessources/PantherKolab",
     technologies: [
       "Next.js",
@@ -64,7 +82,7 @@ const projects = [
       "Collaborative whiteboarding tools",
     ],
     category: "Full Stack",
-    status: "In Development",
+    status: "Production",
   },
   {
     title: "Performance Monitoring Dashboard",
@@ -81,36 +99,9 @@ const projects = [
     ],
     category: "Systems",
     status: "In Development",
-    featured: true,
+    featured: false,
   },
 ];
-
-// const systemsProjects = [
-//   {
-//     icon: Monitor,
-//     title: "High-Performance Caching System",
-//     description:
-//       "Building an optimized caching layer demonstrating data structure efficiency and memory management.",
-//     status: "Planned - September 2025",
-//     technologies: ["C", "Data Structures", "Performance Analysis"],
-//   },
-//   {
-//     icon: Zap,
-//     title: "Distributed Key-Value Store",
-//     description:
-//       "Implementing a distributed storage system with replication and fault tolerance.",
-//     status: "Planned - November 2025",
-//     technologies: ["Distributed Systems", "Consensus", "Replication"],
-//   },
-//   {
-//     icon: Shield,
-//     title: "AI Infrastructure Platform",
-//     description:
-//       "Model serving platform with load balancing, auto-scaling, and performance monitoring.",
-//     status: "Planned - Spring 2026",
-//     technologies: ["Kubernetes", "AI/ML Serving", "Auto-scaling"],
-//   },
-// ];
 
 export function ProjectsSection() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -124,7 +115,10 @@ export function ProjectsSection() {
       setIsDarkMode(document.documentElement.classList.contains("dark"));
     });
 
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
     return () => observer.disconnect();
   }, []);
@@ -165,10 +159,10 @@ export function ProjectsSection() {
                         {project.category === "Systems"
                           ? "⚙️"
                           : project.category === "Full Stack"
-                          ? "💬"
-                          : project.category === "Frontend"
-                          ? "☕"
-                          : "🏢"}
+                            ? "💬"
+                            : project.category === "Frontend"
+                              ? "☕"
+                              : "🏢"}
                       </div>
                       <div className="text-sm font-medium">
                         {project.category} Project
@@ -241,7 +235,11 @@ export function ProjectsSection() {
                         rel="noopener noreferrer"
                       >
                         <Image
-                          src={isDarkMode ? "/icons/github-dark.svg" : "/icons/github.svg"}
+                          src={
+                            isDarkMode
+                              ? "/icons/github-dark.svg"
+                              : "/icons/github.svg"
+                          }
                           alt=""
                           width={4}
                           height={4}

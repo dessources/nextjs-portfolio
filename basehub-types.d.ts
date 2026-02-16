@@ -62,6 +62,42 @@ export interface Scalars {
 
 export type AnalyticsKeyScope = 'query' | 'send'
 
+export interface Author {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (AuthorItem | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: AuthorItem[]
+    __typename: 'Author'
+}
+
+export interface AuthorItem {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight: (SearchHighlight[] | null)
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    text: (Scalars['String'] | null)
+    __typename: 'AuthorItem'
+}
+
+export type AuthorItemOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'text__ASC' | 'text__DESC'
+
 export interface BaseRichTextJson {
     blocks: Scalars['String']
     content: Scalars['BSHBRichTextContentSchema']
@@ -99,7 +135,7 @@ export interface BlockColor {
     __typename: 'BlockColor'
 }
 
-export type BlockDocument = (Elementone | Hero | ResumeLink | _AgentStart) & { __isUnion?: true }
+export type BlockDocument = (Author | AuthorItem | CollegeStatus | CollegeStatusItem | Databases | Frameworks | Hero | Infrastructure | Items | ItemsItem | ItemsItem_1 | ItemsItem_2 | ItemsItem_3 | Items_1 | Items_2 | Items_3 | ProgrammingLanguagesComponent | Settings | Skills | Social | SocialItem | _AgentStart | authorItem_AsList | collegeStatusItem_AsList | itemsItem1_AsList | itemsItem2_AsList | itemsItem3_AsList | itemsItem_AsList | programmingLanguagesComponent_AsList | socialItem_AsList) & { __isUnion?: true }
 
 export interface BlockDocumentSys {
     apiNamePath: Scalars['String']
@@ -158,20 +194,7 @@ export interface BlockImage {
     __typename: 'BlockImage'
 }
 
-export interface BlockList {
-    _analyticsKey: Scalars['String']
-    _dashboardUrl: Scalars['String']
-    _id: Scalars['String']
-    _idPath: Scalars['String']
-    _meta: ListMeta
-    /** The key used to search from the frontend. */
-    _searchKey: Scalars['String']
-    _slug: Scalars['String']
-    _slugPath: Scalars['String']
-    _sys: BlockDocumentSys
-    _title: Scalars['String']
-    __typename: string
-}
+export type BlockList = (Author | CollegeStatus | Items | Items_1 | Items_2 | Items_3 | Social | authorItem_AsList | collegeStatusItem_AsList | itemsItem1_AsList | itemsItem2_AsList | itemsItem3_AsList | itemsItem_AsList | programmingLanguagesComponent_AsList | socialItem_AsList) & { __isUnion?: true }
 
 export interface BlockOgImage {
     height: Scalars['Int']
@@ -205,7 +228,43 @@ export interface BlockVideo {
     __typename: 'BlockVideo'
 }
 
-export interface Elementone {
+export interface CollegeStatus {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (CollegeStatusItem | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: CollegeStatusItem[]
+    __typename: 'CollegeStatus'
+}
+
+export interface CollegeStatusItem {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight: (SearchHighlight[] | null)
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    text: (Scalars['String'] | null)
+    __typename: 'CollegeStatusItem'
+}
+
+export type CollegeStatusItemOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'text__ASC' | 'text__DESC'
+
+export interface Databases {
     _analyticsKey: Scalars['String']
     _dashboardUrl: Scalars['String']
     _id: Scalars['String']
@@ -214,8 +273,23 @@ export interface Elementone {
     _slugPath: Scalars['String']
     _sys: BlockDocumentSys
     _title: Scalars['String']
-    test: (Scalars['String'] | null)
-    __typename: 'Elementone'
+    icon: (Scalars['String'] | null)
+    items: Items_2
+    __typename: 'Databases'
+}
+
+export interface Frameworks {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    icon: (Scalars['String'] | null)
+    items: Items_1
+    __typename: 'Frameworks'
 }
 
 export interface GetUploadSignedURL {
@@ -233,9 +307,163 @@ export interface Hero {
     _slugPath: Scalars['String']
     _sys: BlockDocumentSys
     _title: Scalars['String']
-    resumeLink: ResumeLink
-    resumeLink_1: (Scalars['String'] | null)
+    headline: (Scalars['String'] | null)
+    subHeadline: (Scalars['String'] | null)
     __typename: 'Hero'
+}
+
+export interface Infrastructure {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    icon: (Scalars['String'] | null)
+    items: Items
+    __typename: 'Infrastructure'
+}
+
+export interface Items {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (ItemsItem | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: ItemsItem[]
+    __typename: 'Items'
+}
+
+export interface ItemsItem {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight: (SearchHighlight[] | null)
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    __typename: 'ItemsItem'
+}
+
+export type ItemsItemOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC'
+
+export interface ItemsItem_1 {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight: (SearchHighlight[] | null)
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    __typename: 'ItemsItem_1'
+}
+
+export type ItemsItem_1OrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC'
+
+export interface ItemsItem_2 {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight: (SearchHighlight[] | null)
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    __typename: 'ItemsItem_2'
+}
+
+export type ItemsItem_2OrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC'
+
+export interface ItemsItem_3 {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight: (SearchHighlight[] | null)
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    __typename: 'ItemsItem_3'
+}
+
+export type ItemsItem_3OrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'untitled__ASC' | 'untitled__DESC'
+
+export interface Items_1 {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (ItemsItem_1 | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: ItemsItem_1[]
+    __typename: 'Items_1'
+}
+
+export interface Items_2 {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (ItemsItem_2 | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: ItemsItem_2[]
+    __typename: 'Items_2'
+}
+
+export interface Items_3 {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (ItemsItem_3 | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: ItemsItem_3[]
+    __typename: 'Items_3'
 }
 
 export interface ListMeta {
@@ -283,17 +511,38 @@ export interface Mutation {
     __typename: 'Mutation'
 }
 
+export interface ProgrammingLanguagesComponent {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight: (SearchHighlight[] | null)
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    icon: (Scalars['String'] | null)
+    items: Items_3
+    __typename: 'ProgrammingLanguagesComponent'
+}
+
+export type ProgrammingLanguagesComponentOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'icon__ASC' | 'icon__DESC' | 'items__ASC' | 'items__DESC' | 'untitled__ASC' | 'untitled__DESC'
+
 export interface Query {
     _agent: (_AgentStart | null)
     /** Query across the custom AI agents in the repository. */
     _agents: _agents
+    /** Query across all of the instances of a component. Pass in filters and sorts if you want, and get each instance via the `items` key. */
+    _componentInstances: _components
     /** The diff between the current branch and the head commit. */
     _diff: Scalars['JSON']
     /** The structure of the repository. Used by START. */
     _structure: Scalars['JSON']
     _sys: RepoSys
-    elementone: Elementone
     hero: Hero
+    settings: Settings
+    skills: Skills
     __typename: 'Query'
 }
 
@@ -309,19 +558,6 @@ export interface RepoSys {
     __typename: 'RepoSys'
 }
 
-export interface ResumeLink {
-    _analyticsKey: Scalars['String']
-    _dashboardUrl: Scalars['String']
-    _id: Scalars['String']
-    _idPath: Scalars['String']
-    _slug: Scalars['String']
-    _slugPath: Scalars['String']
-    _sys: BlockDocumentSys
-    _title: Scalars['String']
-    resumeLink: (Scalars['String'] | null)
-    __typename: 'ResumeLink'
-}
-
 export type RichTextJson = (BaseRichTextJson) & { __isUnion?: true }
 
 export interface SearchHighlight {
@@ -331,6 +567,77 @@ export interface SearchHighlight {
     snippet: Scalars['String']
     __typename: 'SearchHighlight'
 }
+
+export interface Settings {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    author: Author
+    collegeStatus: CollegeStatus
+    profilePicture: (BlockImage | null)
+    resumeUrl: (Scalars['String'] | null)
+    social: Social
+    __typename: 'Settings'
+}
+
+export interface Skills {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    databases: Databases
+    frameworks: Frameworks
+    headline: (Scalars['String'] | null)
+    infrastructure: Infrastructure
+    programmingLanguages: ProgrammingLanguagesComponent
+    subHeadline: (Scalars['String'] | null)
+    __typename: 'Skills'
+}
+
+export interface Social {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (SocialItem | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: SocialItem[]
+    __typename: 'Social'
+}
+
+export interface SocialItem {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight: (SearchHighlight[] | null)
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    text: (Scalars['String'] | null)
+    __typename: 'SocialItem'
+}
+
+export type SocialItemOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'text__ASC' | 'text__DESC'
 
 export interface TransactionStatus {
     /** Duration in milliseconds. */
@@ -453,6 +760,224 @@ export interface _agents {
     __typename: '_agents'
 }
 
+export interface _components {
+    authorItem: authorItem_AsList
+    collegeStatusItem: collegeStatusItem_AsList
+    itemsItem: itemsItem_AsList
+    itemsItem1: itemsItem1_AsList
+    itemsItem2: itemsItem2_AsList
+    itemsItem3: itemsItem3_AsList
+    programmingLanguages: programmingLanguagesComponent_AsList
+    socialItem: socialItem_AsList
+    __typename: '_components'
+}
+
+export interface authorItem_AsList {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (AuthorItem | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: AuthorItem[]
+    __typename: 'authorItem_AsList'
+}
+
+export interface collegeStatusItem_AsList {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (CollegeStatusItem | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: CollegeStatusItem[]
+    __typename: 'collegeStatusItem_AsList'
+}
+
+export interface itemsItem1_AsList {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (ItemsItem_1 | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: ItemsItem_1[]
+    __typename: 'itemsItem1_AsList'
+}
+
+export interface itemsItem2_AsList {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (ItemsItem_2 | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: ItemsItem_2[]
+    __typename: 'itemsItem2_AsList'
+}
+
+export interface itemsItem3_AsList {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (ItemsItem_3 | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: ItemsItem_3[]
+    __typename: 'itemsItem3_AsList'
+}
+
+export interface itemsItem_AsList {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (ItemsItem | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: ItemsItem[]
+    __typename: 'itemsItem_AsList'
+}
+
+export interface programmingLanguagesComponent_AsList {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (ProgrammingLanguagesComponent | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: ProgrammingLanguagesComponent[]
+    __typename: 'programmingLanguagesComponent_AsList'
+}
+
+export interface socialItem_AsList {
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _meta: ListMeta
+    /** The key used to search from the frontend. */
+    _searchKey: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item: (SocialItem | null)
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items: SocialItem[]
+    __typename: 'socialItem_AsList'
+}
+
+export interface AuthorGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: AuthorItemGenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: AuthorItemGenqlSelection
+    __typename?: boolean | number
+}
+
+export interface AuthorItemGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight?: SearchHighlightGenqlSelection
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    text?: boolean | number
+    __typename?: boolean | number
+}
+
+export interface AuthorItemFilterInput {AND?: (AuthorItemFilterInput | null),OR?: (AuthorItemFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),text?: (StringFilter | null)}
+
+export interface AuthorItemSearchInput {
+/** Searchable fields for query */
+by?: (Scalars['String'][] | null),
+/** Search query */
+q?: (Scalars['String'] | null)}
+
 export interface BaseRichTextJsonGenqlSelection{
     blocks?: boolean | number
     content?: boolean | number
@@ -507,10 +1032,36 @@ export interface BlockDocumentGenqlSelection{
     _slugPath?: boolean | number
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
-    on_Elementone?: ElementoneGenqlSelection
+    on_Author?: AuthorGenqlSelection
+    on_AuthorItem?: AuthorItemGenqlSelection
+    on_CollegeStatus?: CollegeStatusGenqlSelection
+    on_CollegeStatusItem?: CollegeStatusItemGenqlSelection
+    on_Databases?: DatabasesGenqlSelection
+    on_Frameworks?: FrameworksGenqlSelection
     on_Hero?: HeroGenqlSelection
-    on_ResumeLink?: ResumeLinkGenqlSelection
+    on_Infrastructure?: InfrastructureGenqlSelection
+    on_Items?: ItemsGenqlSelection
+    on_ItemsItem?: ItemsItemGenqlSelection
+    on_ItemsItem_1?: ItemsItem_1GenqlSelection
+    on_ItemsItem_2?: ItemsItem_2GenqlSelection
+    on_ItemsItem_3?: ItemsItem_3GenqlSelection
+    on_Items_1?: Items_1GenqlSelection
+    on_Items_2?: Items_2GenqlSelection
+    on_Items_3?: Items_3GenqlSelection
+    on_ProgrammingLanguagesComponent?: ProgrammingLanguagesComponentGenqlSelection
+    on_Settings?: SettingsGenqlSelection
+    on_Skills?: SkillsGenqlSelection
+    on_Social?: SocialGenqlSelection
+    on_SocialItem?: SocialItemGenqlSelection
     on__AgentStart?: _AgentStartGenqlSelection
+    on_authorItem_AsList?: authorItem_AsListGenqlSelection
+    on_collegeStatusItem_AsList?: collegeStatusItem_AsListGenqlSelection
+    on_itemsItem1_AsList?: itemsItem1_AsListGenqlSelection
+    on_itemsItem2_AsList?: itemsItem2_AsListGenqlSelection
+    on_itemsItem3_AsList?: itemsItem3_AsListGenqlSelection
+    on_itemsItem_AsList?: itemsItem_AsListGenqlSelection
+    on_programmingLanguagesComponent_AsList?: programmingLanguagesComponent_AsListGenqlSelection
+    on_socialItem_AsList?: socialItem_AsListGenqlSelection
     __typename?: boolean | number
 }
 
@@ -589,6 +1140,21 @@ export interface BlockListGenqlSelection{
     _slugPath?: boolean | number
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
+    on_Author?: AuthorGenqlSelection
+    on_CollegeStatus?: CollegeStatusGenqlSelection
+    on_Items?: ItemsGenqlSelection
+    on_Items_1?: Items_1GenqlSelection
+    on_Items_2?: Items_2GenqlSelection
+    on_Items_3?: Items_3GenqlSelection
+    on_Social?: SocialGenqlSelection
+    on_authorItem_AsList?: authorItem_AsListGenqlSelection
+    on_collegeStatusItem_AsList?: collegeStatusItem_AsListGenqlSelection
+    on_itemsItem1_AsList?: itemsItem1_AsListGenqlSelection
+    on_itemsItem2_AsList?: itemsItem2_AsListGenqlSelection
+    on_itemsItem3_AsList?: itemsItem3_AsListGenqlSelection
+    on_itemsItem_AsList?: itemsItem_AsListGenqlSelection
+    on_programmingLanguagesComponent_AsList?: programmingLanguagesComponent_AsListGenqlSelection
+    on_socialItem_AsList?: socialItem_AsListGenqlSelection
     __typename?: boolean | number
 }
 
@@ -630,9 +1196,61 @@ export interface BlockVideoGenqlSelection{
     __typename?: boolean | number
 }
 
-export interface DateFilter {eq?: (Scalars['DateTime'] | null),isAfter?: (Scalars['DateTime'] | null),isBefore?: (Scalars['DateTime'] | null),isNull?: (Scalars['Boolean'] | null),neq?: (Scalars['DateTime'] | null),onOrAfter?: (Scalars['DateTime'] | null),onOrBefore?: (Scalars['DateTime'] | null)}
+export interface CollegeStatusGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: CollegeStatusItemGenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: CollegeStatusItemGenqlSelection
+    __typename?: boolean | number
+}
 
-export interface ElementoneGenqlSelection{
+export interface CollegeStatusItemGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight?: SearchHighlightGenqlSelection
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    text?: boolean | number
+    __typename?: boolean | number
+}
+
+export interface CollegeStatusItemFilterInput {AND?: (CollegeStatusItemFilterInput | null),OR?: (CollegeStatusItemFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),text?: (StringFilter | null)}
+
+export interface CollegeStatusItemSearchInput {
+/** Searchable fields for query */
+by?: (Scalars['String'][] | null),
+/** Search query */
+q?: (Scalars['String'] | null)}
+
+export interface DatabasesGenqlSelection{
     _analyticsKey?: { __args: {
     /**
      * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
@@ -647,7 +1265,50 @@ export interface ElementoneGenqlSelection{
     _slugPath?: boolean | number
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
-    test?: boolean | number
+    icon?: boolean | number
+    items?: (Items_2GenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (ItemsItem_2FilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (ItemsItem_2OrderByEnum | null), 
+    /** Search configuration */
+    search?: (ItemsItem_2SearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
+    __typename?: boolean | number
+}
+
+export interface DateFilter {eq?: (Scalars['DateTime'] | null),isAfter?: (Scalars['DateTime'] | null),isBefore?: (Scalars['DateTime'] | null),isNull?: (Scalars['Boolean'] | null),neq?: (Scalars['DateTime'] | null),onOrAfter?: (Scalars['DateTime'] | null),onOrBefore?: (Scalars['DateTime'] | null)}
+
+export interface FrameworksGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    icon?: boolean | number
+    items?: (Items_1GenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (ItemsItem_1FilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (ItemsItem_1OrderByEnum | null), 
+    /** Search configuration */
+    search?: (ItemsItem_1SearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
     __typename?: boolean | number
 }
 
@@ -672,8 +1333,250 @@ export interface HeroGenqlSelection{
     _slugPath?: boolean | number
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
-    resumeLink?: ResumeLinkGenqlSelection
-    resumeLink_1?: boolean | number
+    headline?: boolean | number
+    subHeadline?: boolean | number
+    __typename?: boolean | number
+}
+
+export interface InfrastructureGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    icon?: boolean | number
+    items?: (ItemsGenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (ItemsItemFilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (ItemsItemOrderByEnum | null), 
+    /** Search configuration */
+    search?: (ItemsItemSearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
+    __typename?: boolean | number
+}
+
+export interface ItemsGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: ItemsItemGenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: ItemsItemGenqlSelection
+    __typename?: boolean | number
+}
+
+export interface ItemsItemGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight?: SearchHighlightGenqlSelection
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    __typename?: boolean | number
+}
+
+export interface ItemsItemFilterInput {AND?: (ItemsItemFilterInput | null),OR?: (ItemsItemFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
+
+export interface ItemsItemSearchInput {
+/** Searchable fields for query */
+by?: (Scalars['String'][] | null),
+/** Search query */
+q?: (Scalars['String'] | null)}
+
+export interface ItemsItem_1GenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight?: SearchHighlightGenqlSelection
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    __typename?: boolean | number
+}
+
+export interface ItemsItem_1FilterInput {AND?: (ItemsItem_1FilterInput | null),OR?: (ItemsItem_1FilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
+
+export interface ItemsItem_1SearchInput {
+/** Searchable fields for query */
+by?: (Scalars['String'][] | null),
+/** Search query */
+q?: (Scalars['String'] | null)}
+
+export interface ItemsItem_2GenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight?: SearchHighlightGenqlSelection
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    __typename?: boolean | number
+}
+
+export interface ItemsItem_2FilterInput {AND?: (ItemsItem_2FilterInput | null),OR?: (ItemsItem_2FilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
+
+export interface ItemsItem_2SearchInput {
+/** Searchable fields for query */
+by?: (Scalars['String'][] | null),
+/** Search query */
+q?: (Scalars['String'] | null)}
+
+export interface ItemsItem_3GenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight?: SearchHighlightGenqlSelection
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    __typename?: boolean | number
+}
+
+export interface ItemsItem_3FilterInput {AND?: (ItemsItem_3FilterInput | null),OR?: (ItemsItem_3FilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
+
+export interface ItemsItem_3SearchInput {
+/** Searchable fields for query */
+by?: (Scalars['String'][] | null),
+/** Search query */
+q?: (Scalars['String'] | null)}
+
+export interface Items_1GenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: ItemsItem_1GenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: ItemsItem_1GenqlSelection
+    __typename?: boolean | number
+}
+
+export interface Items_2GenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: ItemsItem_2GenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: ItemsItem_2GenqlSelection
+    __typename?: boolean | number
+}
+
+export interface Items_3GenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: ItemsItem_3GenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: ItemsItem_3GenqlSelection
     __typename?: boolean | number
 }
 
@@ -768,12 +1671,54 @@ export interface MutationGenqlSelection{
 
 export interface NumberFilter {eq?: (Scalars['Float'] | null),gt?: (Scalars['Float'] | null),gte?: (Scalars['Float'] | null),isNull?: (Scalars['Boolean'] | null),lt?: (Scalars['Float'] | null),lte?: (Scalars['Float'] | null),neq?: (Scalars['Float'] | null)}
 
+export interface ProgrammingLanguagesComponentGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight?: SearchHighlightGenqlSelection
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    icon?: boolean | number
+    items?: (Items_3GenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (ItemsItem_3FilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (ItemsItem_3OrderByEnum | null), 
+    /** Search configuration */
+    search?: (ItemsItem_3SearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
+    __typename?: boolean | number
+}
+
+export interface ProgrammingLanguagesComponentFilterInput {AND?: (ProgrammingLanguagesComponentFilterInput | null),OR?: (ProgrammingLanguagesComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),icon?: (StringFilter | null),items?: (ListFilter | null)}
+
+export interface ProgrammingLanguagesComponentSearchInput {
+/** Searchable fields for query */
+by?: (Scalars['String'][] | null),
+/** Search query */
+q?: (Scalars['String'] | null)}
+
 export interface QueryGenqlSelection{
     _agent?: (_AgentStartGenqlSelection & { __args: {
     /** The ID of the agent. */
     id: Scalars['String']} })
     /** Query across the custom AI agents in the repository. */
     _agents?: _agentsGenqlSelection
+    /** Query across all of the instances of a component. Pass in filters and sorts if you want, and get each instance via the `items` key. */
+    _componentInstances?: _componentsGenqlSelection
     /** The diff between the current branch and the head commit. */
     _diff?: { __args: {
     /** Simplified diff returns only the items array showing statuses. */
@@ -793,8 +1738,9 @@ export interface QueryGenqlSelection{
     /** Whether to include type options in the structure. */
     withTypeOptions?: (Scalars['Boolean'] | null)} } | boolean | number
     _sys?: RepoSysGenqlSelection
-    elementone?: ElementoneGenqlSelection
     hero?: HeroGenqlSelection
+    settings?: SettingsGenqlSelection
+    skills?: SkillsGenqlSelection
     __typename?: boolean | number
 }
 
@@ -807,25 +1753,6 @@ export interface RepoSysGenqlSelection{
     playgroundInfo?: _PlaygroundInfoGenqlSelection
     slug?: boolean | number
     title?: boolean | number
-    __typename?: boolean | number
-}
-
-export interface ResumeLinkGenqlSelection{
-    _analyticsKey?: { __args: {
-    /**
-     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
-     * 
-     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
-     */
-    scope?: (AnalyticsKeyScope | null)} } | boolean | number
-    _dashboardUrl?: boolean | number
-    _id?: boolean | number
-    _idPath?: boolean | number
-    _slug?: boolean | number
-    _slugPath?: boolean | number
-    _sys?: BlockDocumentSysGenqlSelection
-    _title?: boolean | number
-    resumeLink?: boolean | number
     __typename?: boolean | number
 }
 
@@ -845,6 +1772,137 @@ export interface SearchHighlightGenqlSelection{
 }
 
 export interface SelectFilter {excludes?: (Scalars['String'] | null),excludesAll?: (Scalars['String'][] | null),includes?: (Scalars['String'] | null),includesAll?: (Scalars['String'][] | null),includesAny?: (Scalars['String'][] | null),isEmpty?: (Scalars['Boolean'] | null)}
+
+export interface SettingsGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    author?: (AuthorGenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (AuthorItemFilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (AuthorItemOrderByEnum | null), 
+    /** Search configuration */
+    search?: (AuthorItemSearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
+    collegeStatus?: (CollegeStatusGenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (CollegeStatusItemFilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (CollegeStatusItemOrderByEnum | null), 
+    /** Search configuration */
+    search?: (CollegeStatusItemSearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
+    profilePicture?: BlockImageGenqlSelection
+    resumeUrl?: boolean | number
+    social?: (SocialGenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (SocialItemFilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (SocialItemOrderByEnum | null), 
+    /** Search configuration */
+    search?: (SocialItemSearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
+    __typename?: boolean | number
+}
+
+export interface SkillsGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    databases?: DatabasesGenqlSelection
+    frameworks?: FrameworksGenqlSelection
+    headline?: boolean | number
+    infrastructure?: InfrastructureGenqlSelection
+    programmingLanguages?: ProgrammingLanguagesComponentGenqlSelection
+    subHeadline?: boolean | number
+    __typename?: boolean | number
+}
+
+export interface SocialGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: SocialItemGenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: SocialItemGenqlSelection
+    __typename?: boolean | number
+}
+
+export interface SocialItemGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight?: SearchHighlightGenqlSelection
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    text?: boolean | number
+    __typename?: boolean | number
+}
+
+export interface SocialItemFilterInput {AND?: (SocialItemFilterInput | null),OR?: (SocialItemFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),text?: (StringFilter | null)}
+
+export interface SocialItemSearchInput {
+/** Searchable fields for query */
+by?: (Scalars['String'][] | null),
+/** Search query */
+q?: (Scalars['String'] | null)}
 
 export interface StringFilter {contains?: (Scalars['String'] | null),endsWith?: (Scalars['String'] | null),eq?: (Scalars['String'] | null),in?: (Scalars['String'][] | null),isNull?: (Scalars['Boolean'] | null),matches?: (StringMatchesFilter | null),notEq?: (Scalars['String'] | null),notIn?: (Scalars['String'][] | null),startsWith?: (Scalars['String'] | null)}
 
@@ -973,7 +2031,307 @@ export interface _agentsGenqlSelection{
     __typename?: boolean | number
 }
 
+export interface _componentsGenqlSelection{
+    authorItem?: (authorItem_AsListGenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (AuthorItemFilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (AuthorItemOrderByEnum | null), 
+    /** Search configuration */
+    search?: (AuthorItemSearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
+    collegeStatusItem?: (collegeStatusItem_AsListGenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (CollegeStatusItemFilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (CollegeStatusItemOrderByEnum | null), 
+    /** Search configuration */
+    search?: (CollegeStatusItemSearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
+    itemsItem?: (itemsItem_AsListGenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (ItemsItemFilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (ItemsItemOrderByEnum | null), 
+    /** Search configuration */
+    search?: (ItemsItemSearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
+    itemsItem1?: (itemsItem1_AsListGenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (ItemsItem_1FilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (ItemsItem_1OrderByEnum | null), 
+    /** Search configuration */
+    search?: (ItemsItem_1SearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
+    itemsItem2?: (itemsItem2_AsListGenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (ItemsItem_2FilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (ItemsItem_2OrderByEnum | null), 
+    /** Search configuration */
+    search?: (ItemsItem_2SearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
+    itemsItem3?: (itemsItem3_AsListGenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (ItemsItem_3FilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (ItemsItem_3OrderByEnum | null), 
+    /** Search configuration */
+    search?: (ItemsItem_3SearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
+    programmingLanguages?: (programmingLanguagesComponent_AsListGenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (ProgrammingLanguagesComponentFilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (ProgrammingLanguagesComponentOrderByEnum | null), 
+    /** Search configuration */
+    search?: (ProgrammingLanguagesComponentSearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
+    socialItem?: (socialItem_AsListGenqlSelection & { __args?: {
+    /** Filter by a field. */
+    filter?: (SocialItemFilterInput | null), 
+    /** Limit the number of items returned. Defaults to 500. */
+    first?: (Scalars['Int'] | null), 
+    /** Order by a field. */
+    orderBy?: (SocialItemOrderByEnum | null), 
+    /** Search configuration */
+    search?: (SocialItemSearchInput | null), 
+    /** Skip the first n items. */
+    skip?: (Scalars['Int'] | null)} })
+    __typename?: boolean | number
+}
+
+export interface authorItem_AsListGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: AuthorItemGenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: AuthorItemGenqlSelection
+    __typename?: boolean | number
+}
+
+export interface collegeStatusItem_AsListGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: CollegeStatusItemGenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: CollegeStatusItemGenqlSelection
+    __typename?: boolean | number
+}
+
+export interface itemsItem1_AsListGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: ItemsItem_1GenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: ItemsItem_1GenqlSelection
+    __typename?: boolean | number
+}
+
+export interface itemsItem2_AsListGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: ItemsItem_2GenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: ItemsItem_2GenqlSelection
+    __typename?: boolean | number
+}
+
+export interface itemsItem3_AsListGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: ItemsItem_3GenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: ItemsItem_3GenqlSelection
+    __typename?: boolean | number
+}
+
+export interface itemsItem_AsListGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: ItemsItemGenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: ItemsItemGenqlSelection
+    __typename?: boolean | number
+}
+
+export interface programmingLanguagesComponent_AsListGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: ProgrammingLanguagesComponentGenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: ProgrammingLanguagesComponentGenqlSelection
+    __typename?: boolean | number
+}
+
+export interface socialItem_AsListGenqlSelection{
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _meta?: ListMetaGenqlSelection
+    /** The key used to search from the frontend. */
+    _searchKey?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
+    item?: SocialItemGenqlSelection
+    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
+    items?: SocialItemGenqlSelection
+    __typename?: boolean | number
+}
+
 export interface FragmentsMap {
+  Author: {
+    root: Author,
+    selection: AuthorGenqlSelection,
+}
+  AuthorItem: {
+    root: AuthorItem,
+    selection: AuthorItemGenqlSelection,
+}
   BaseRichTextJson: {
     root: BaseRichTextJson,
     selection: BaseRichTextJsonGenqlSelection,
@@ -1022,9 +2380,21 @@ export interface FragmentsMap {
     root: BlockVideo,
     selection: BlockVideoGenqlSelection,
 }
-  Elementone: {
-    root: Elementone,
-    selection: ElementoneGenqlSelection,
+  CollegeStatus: {
+    root: CollegeStatus,
+    selection: CollegeStatusGenqlSelection,
+}
+  CollegeStatusItem: {
+    root: CollegeStatusItem,
+    selection: CollegeStatusItemGenqlSelection,
+}
+  Databases: {
+    root: Databases,
+    selection: DatabasesGenqlSelection,
+}
+  Frameworks: {
+    root: Frameworks,
+    selection: FrameworksGenqlSelection,
 }
   GetUploadSignedURL: {
     root: GetUploadSignedURL,
@@ -1033,6 +2403,42 @@ export interface FragmentsMap {
   Hero: {
     root: Hero,
     selection: HeroGenqlSelection,
+}
+  Infrastructure: {
+    root: Infrastructure,
+    selection: InfrastructureGenqlSelection,
+}
+  Items: {
+    root: Items,
+    selection: ItemsGenqlSelection,
+}
+  ItemsItem: {
+    root: ItemsItem,
+    selection: ItemsItemGenqlSelection,
+}
+  ItemsItem_1: {
+    root: ItemsItem_1,
+    selection: ItemsItem_1GenqlSelection,
+}
+  ItemsItem_2: {
+    root: ItemsItem_2,
+    selection: ItemsItem_2GenqlSelection,
+}
+  ItemsItem_3: {
+    root: ItemsItem_3,
+    selection: ItemsItem_3GenqlSelection,
+}
+  Items_1: {
+    root: Items_1,
+    selection: Items_1GenqlSelection,
+}
+  Items_2: {
+    root: Items_2,
+    selection: Items_2GenqlSelection,
+}
+  Items_3: {
+    root: Items_3,
+    selection: Items_3GenqlSelection,
 }
   ListMeta: {
     root: ListMeta,
@@ -1046,6 +2452,10 @@ export interface FragmentsMap {
     root: Mutation,
     selection: MutationGenqlSelection,
 }
+  ProgrammingLanguagesComponent: {
+    root: ProgrammingLanguagesComponent,
+    selection: ProgrammingLanguagesComponentGenqlSelection,
+}
   Query: {
     root: Query,
     selection: QueryGenqlSelection,
@@ -1054,10 +2464,6 @@ export interface FragmentsMap {
     root: RepoSys,
     selection: RepoSysGenqlSelection,
 }
-  ResumeLink: {
-    root: ResumeLink,
-    selection: ResumeLinkGenqlSelection,
-}
   RichTextJson: {
     root: RichTextJson,
     selection: RichTextJsonGenqlSelection,
@@ -1065,6 +2471,22 @@ export interface FragmentsMap {
   SearchHighlight: {
     root: SearchHighlight,
     selection: SearchHighlightGenqlSelection,
+}
+  Settings: {
+    root: Settings,
+    selection: SettingsGenqlSelection,
+}
+  Skills: {
+    root: Skills,
+    selection: SkillsGenqlSelection,
+}
+  Social: {
+    root: Social,
+    selection: SocialGenqlSelection,
+}
+  SocialItem: {
+    root: SocialItem,
+    selection: SocialItemGenqlSelection,
 }
   TransactionStatus: {
     root: TransactionStatus,
@@ -1101,5 +2523,41 @@ export interface FragmentsMap {
   _agents: {
     root: _agents,
     selection: _agentsGenqlSelection,
+}
+  _components: {
+    root: _components,
+    selection: _componentsGenqlSelection,
+}
+  authorItem_AsList: {
+    root: authorItem_AsList,
+    selection: authorItem_AsListGenqlSelection,
+}
+  collegeStatusItem_AsList: {
+    root: collegeStatusItem_AsList,
+    selection: collegeStatusItem_AsListGenqlSelection,
+}
+  itemsItem1_AsList: {
+    root: itemsItem1_AsList,
+    selection: itemsItem1_AsListGenqlSelection,
+}
+  itemsItem2_AsList: {
+    root: itemsItem2_AsList,
+    selection: itemsItem2_AsListGenqlSelection,
+}
+  itemsItem3_AsList: {
+    root: itemsItem3_AsList,
+    selection: itemsItem3_AsListGenqlSelection,
+}
+  itemsItem_AsList: {
+    root: itemsItem_AsList,
+    selection: itemsItem_AsListGenqlSelection,
+}
+  programmingLanguagesComponent_AsList: {
+    root: programmingLanguagesComponent_AsList,
+    selection: programmingLanguagesComponent_AsListGenqlSelection,
+}
+  socialItem_AsList: {
+    root: socialItem_AsList,
+    selection: socialItem_AsListGenqlSelection,
 }
 }

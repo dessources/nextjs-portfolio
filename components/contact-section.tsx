@@ -40,14 +40,14 @@ const contactMethods = [
   },
 ];
 
-const interestAreas = [
-  "Systems Engineering Opportunities",
-  "Performance Optimization",
-  "Infrastructure & Backend Development",
-  "Site Reliability Engineering Roles",
-  "Technical Mentorship",
-  "Open Source Contributions",
-];
+// const interestAreas = [
+//   "Systems Engineering Opportunities",
+//   "Performance Optimization",
+//   "Infrastructure & Backend Development",
+//   "Site Reliability Engineering Roles",
+//   "Technical Mentorship",
+//   "Open Source Contributions",
+// ];
 
 export function ContactSection() {
   return (
@@ -138,8 +138,8 @@ export function ContactSection() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-semibold mb-6">Areas of Interest</h3>
-            <Card>
+            <h3 className="text-2xl font-semibold mb-6">Comming Soon</h3>
+            {/* <Card>
               <CardContent className="p-6 space-y-4">
                 {interestAreas.map((area) => (
                   <div key={area} className="flex items-center gap-3">
@@ -148,7 +148,7 @@ export function ContactSection() {
                   </div>
                 ))}
               </CardContent>
-            </Card>
+            </Card> */}
 
             <Card className="bg-primary/5 border-primary/20">
               <CardContent className="p-6">
@@ -163,26 +163,26 @@ export function ContactSection() {
                 </p>
                 <Button variant="outline" size="sm" disabled>
                   <Calendar className="mr-2 h-4 w-4" />
-                  Launching Fall 2025
+                  Launching Spring 2026
                 </Button>
               </CardContent>
             </Card>
 
-            <div className="text-center pt-4">
+            {/* <div className="text-center pt-4">
               <Card>
                 <CardContent className="p-6">
                   <h4 className="font-semibold mb-2">Current Status</h4>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Full-time student working towards graduation in Fall 2026.
+                    Full-time student working towards graduation in Spring 2027.
                     Open to internships, part-time opportunities, and technical
                     discussions.
                   </p>
                   <div className="text-xs text-primary font-medium">
-                    Expected Graduation: Fall 2026
+                    Expected Graduation: Spring 2027
                   </div>
                 </CardContent>
               </Card>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>

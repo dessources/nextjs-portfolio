@@ -1,9 +1,67 @@
 import { basehub } from "basehub";
+import { QueryGenqlSelection, SkillsGenqlSelection } from "basehub-types";
 
 // BaseHub client with type safety
 export const client = basehub({
   token: process.env.BASEHUB_TOKEN!,
 });
+
+const skillsQuery: SkillsGenqlSelection = {
+  infrastructure: {
+    icon: true,
+    _title: true,
+    items: {
+      items: {
+        _title: true,
+      },
+    },
+  },
+  frameworks: {
+    icon: true,
+    _title: true,
+    items: {
+      items: {
+        _title: true,
+      },
+    },
+  },
+  databases: {
+    icon: true,
+    _title: true,
+    items: {
+      items: {
+        _title: true,
+      },
+    },
+  },
+  programmingLanguages: {
+    icon: true,
+    _title: true,
+    items: {
+      items: {
+        _title: true,
+      },
+    },
+  },
+};
+
+export const queries: QueryGenqlSelection[] = [
+  {
+    settings: {
+      author: {
+        _title: true,
+      },
+      social: {
+        _title: true,
+      },
+    },
+    hero: {
+      headline: true,
+      subHeadline: true,
+    },
+    skills: skillsQuery,
+  },
+];
 
 // Query fragments for reusable field selections
 // export const projectFragment = {

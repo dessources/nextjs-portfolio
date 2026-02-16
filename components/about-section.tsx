@@ -10,7 +10,7 @@ const currentFocus = [
     title: "Academic Journey",
     description:
       "Computer Architecture • Data Structures • Systems Programming",
-    detail: "Expected graduation: Fall 2026",
+    detail: "Expected graduation: Spring 2027",
   },
   {
     icon: Target,

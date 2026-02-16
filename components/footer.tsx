@@ -13,14 +13,22 @@ const navigationLinks = [
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/dessources", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/dessources", label: "LinkedIn" },
+  {
+    icon: Linkedin,
+    href: "https://linkedin.com/in/dessources",
+    label: "LinkedIn",
+  },
   { icon: Mail, href: "mailto:contact@jaemdessources.com", label: "Email" },
 ];
 
 const projectLinks = [
+  {
+    name: "Rate-limited URL shortener",
+    href: "https://pety.to/",
+  },
   { name: "iChat App", href: "https://ichat-cra.jaemdessources.com" },
-  { name: "Death Wish Coffee", href: "https://deathwishcoffee.jaemdessources.com/" },
-  { name: "Corporate Site", href: "https://corporate-site.jaemdessources.com/" },
+  { name: "PantherKolab", href: "https://pantherkolab.com" },
+
   { name: "Performance Dashboard", href: "/monitoring" },
 ];
 
@@ -47,7 +55,8 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={social.label}>
+                    aria-label={social.label}
+                  >
                     <social.icon className="h-4 w-4" />
                   </Link>
                 </Button>
@@ -63,7 +72,8 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -79,13 +89,16 @@ export function Footer() {
                 <li key={project.name}>
                   <Link
                     href={project.href}
-                    target={project.href.startsWith("http") ? "_blank" : undefined}
+                    target={
+                      project.href.startsWith("http") ? "_blank" : undefined
+                    }
                     rel={
                       project.href.startsWith("http")
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
                     {project.name}
                   </Link>
                 </li>
@@ -102,13 +115,14 @@ export function Footer() {
               </p>
               <Link
                 href="mailto:contact@jaemdessources.com"
-                className="text-sm text-primary hover:underline">
+                className="text-sm text-primary hover:underline"
+              >
                 contact@jaemdessources.com
               </Link>
             </div>
             <div className="text-xs text-muted-foreground">
               <p>Student at Florida International University</p>
-              <p>Expected Graduation: Fall 2026</p>
+              <p>Expected Graduation: Spring 2027</p>
             </div>
           </div>
         </div>
@@ -124,7 +138,8 @@ export function Footer() {
             variant="ghost"
             size="sm"
             onClick={scrollToTop}
-            className="mt-4 sm:mt-0">
+            className="mt-4 sm:mt-0"
+          >
             <ArrowUp className="h-4 w-4 mr-2" />
             Back to Top
           </Button>

@@ -1,34 +1,36 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 export const formatDate = (date: Date | string) => {
   const d = new Date(date);
-  return d.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+  return d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 };
 
 export const slugify = (text: string) => {
   return text
     .toLowerCase()
-    .replace(/[^\w ]+/g, '')
-    .replace(/ +/g, '-');
+    .replace(/[^\w ]+/g, "")
+    .replace(/ +/g, "-");
 };
 
 export const truncate = (text: string, length: number = 100) => {
   if (text.length <= length) return text;
-  return text.substring(0, length).trim() + '...';
+  return text.substring(0, length).trim() + "...";
 };
 
+//@ts-nocheck
 export const debounce = <T extends (...args: any[]) => any>(
   func: T,
-  wait: number
+  wait: number,
 ): ((...args: Parameters<T>) => void) => {
   let timeout: NodeJS.Timeout;
   return (...args: Parameters<T>) => {
@@ -39,7 +41,7 @@ export const debounce = <T extends (...args: any[]) => any>(
 
 export const throttle = <T extends (...args: any[]) => any>(
   func: T,
-  limit: number
+  limit: number,
 ): ((...args: Parameters<T>) => void) => {
   let inThrottle: boolean;
   return (...args: Parameters<T>) => {
@@ -54,7 +56,7 @@ export const throttle = <T extends (...args: any[]) => any>(
 export const handleSmoothScroll = (
   e: { preventDefault: () => void },
   href: string,
-  setIsMenuOpen?: (open: boolean) => void
+  setIsMenuOpen?: (open: boolean) => void,
 ) => {
   e.preventDefault();
 

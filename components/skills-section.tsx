@@ -2,109 +2,18 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  SkillLevelBadge,
-  type SkillLevel,
-} from "@/components/skill-level-badge";
-import { Code2, Database, Server, Monitor, Wrench, Cog } from "lucide-react";
 
-const skillCategories = [
-  {
-    icon: Code2,
-    title: "Programming Languages",
-    skills: [
-      {
-        name: "JavaScript/TypeScript",
-        level: "expert" as SkillLevel,
-        learning: false,
-      },
-      { name: "Python", level: "advanced" as SkillLevel, learning: false },
-      { name: "Java", level: "advanced" as SkillLevel, learning: false },
-      { name: "C", level: "advanced" as SkillLevel, learning: true },
-      { name: "Go", level: "beginner" as SkillLevel, learning: true },
-    ],
-  },
-  {
-    icon: Server,
-    title: "Frameworks & Tools",
-    skills: [
-      { name: "React/Next.js", level: "expert" as SkillLevel, learning: false },
-      { name: "Node.js", level: "advanced" as SkillLevel, learning: false },
-      { name: "Docker", level: "beginner" as SkillLevel, learning: true },
-      { name: "Kubernetes", level: "beginner" as SkillLevel, learning: true },
-      { name: "AWS", level: "beginner" as SkillLevel, learning: true },
-    ],
-  },
-  {
-    icon: Database,
-    title: "Data & Systems",
-    skills: [
-      { name: "PostgreSQL", level: "advanced" as SkillLevel, learning: false },
-      { name: "Redis", level: "beginner" as SkillLevel, learning: true },
-      {
-        name: "System Design",
-        level: "advanced" as SkillLevel,
-        learning: true,
-      },
-      {
-        name: "Performance Optimization",
-        level: "advanced" as SkillLevel,
-        learning: true,
-      },
-      {
-        name: "Distributed Systems",
-        level: "beginner" as SkillLevel,
-        learning: true,
-      },
-    ],
-  },
-  {
-    icon: Monitor,
-    title: "Infrastructure & DevOps",
-    skills: [
-      { name: "Git/GitHub", level: "expert" as SkillLevel, learning: false },
-      {
-        name: "CI/CD Pipelines",
-        level: "advanced" as SkillLevel,
-        learning: true,
-      },
-      {
-        name: "Monitoring & Observability",
-        level: "beginner" as SkillLevel,
-        learning: true,
-      },
-      { name: "Linux/Unix", level: "advanced" as SkillLevel, learning: true },
-      {
-        name: "Infrastructure as Code",
-        level: "beginner" as SkillLevel,
-        learning: true,
-      },
-    ],
-  },
-];
+import { DynamicIcon } from "@/lib/icons";
+import { Skills } from "basehub-types";
 
-const currentLearning = [
-  {
-    icon: Cog,
-    title: "Computer Architecture",
-
-    course: "CDA3102 - Fall 2025",
-  },
-  {
-    icon: Wrench,
-    title: "Systems Programming",
-
-    course: "COP4338 - Fall 2025",
-  },
-  {
-    icon: Database,
-    title: "Data Structures",
-
-    course: "COP3550 - Fall 2025",
-  },
-];
-
-export function SkillsSection() {
+export function SkillsSection({ skills }: { skills: Skills }) {
+  const skillCategories = [
+    skills.programmingLanguages,
+    skills.frameworks,
+    skills.databases,
+    skills.infrastructure,
+  ];
+  skillCategories.forEach((item) => console.dir(item, { depth: null }));
   return (
     <section id="skills" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -119,9 +28,7 @@ export function SkillsSection() {
             Technical Skills & Learning Journey
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Building expertise in systems engineering through hands-on projects
-            and formal coursework. Continuously learning and applying new
-            technologies to solve complex problems.
+            {skills.subHeadline}
           </p>
         </motion.div>
 
@@ -134,30 +41,28 @@ export function SkillsSection() {
           className="grid md:grid-cols-2 gap-8 mb-16"
         >
           {skillCategories.map((category) => (
-            <Card key={category.title}>
+            <Card key={category._title}>
               <CardHeader>
-                <CardTitle className="flex items-center gap-3">
-                  <div className="bg-primary/10 p-2 rounded-lg">
-                    <category.icon className="h-5 w-5 text-primary" />
+                <CardTitle className="flex items-center gap-3 capitalize">
+                  <div className="bg-primary/10 p-2 rounded-lg ">
+                    <DynamicIcon
+                      name={category.icon as string}
+                      className="h-5 w-5 text-primary"
+                    />
                   </div>
-                  {category.title}
+                  {category._title}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {category.skills.map((skill) => (
+                {category.items.items.map((item) => (
                   <div
-                    key={skill.name}
+                    key={item._title}
                     className="flex items-center justify-between"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-sm font-medium">{skill.name}</span>
-                      {skill.learning && (
-                        <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium dark:bg-blue-900/30 dark:text-blue-300">
-                          Learning
-                        </span>
-                      )}
+                      <span className="text-sm font-medium">{item._title}</span>
                     </div>
-                    <SkillLevelBadge level={skill.level} />
+                    {/* <SkillLevelBadge level={skill.level} /> */}
                   </div>
                 ))}
               </CardContent>
@@ -166,7 +71,7 @@ export function SkillsSection() {
         </motion.div>
 
         {/* Current Learning */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -191,7 +96,7 @@ export function SkillsSection() {
               </Card>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -1,8 +1,14 @@
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
-import { Separator } from "@/components/ui/separator"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { Separator } from "@/components/ui/separator";
 import {
   Github,
   Linkedin,
@@ -16,7 +22,7 @@ import {
   Zap,
   Terminal,
   BookOpen,
-} from "lucide-react"
+} from "lucide-react";
 
 export default function Portfolio() {
   return (
@@ -26,10 +32,15 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-slate-900">Alex Rodriguez</h1>
-              <p className="text-lg text-slate-600 mt-1">Systems Engineering Student & Infrastructure Enthusiast</p>
+              <h1 className="text-3xl font-bold text-slate-900">
+                Alex Rodriguez
+              </h1>
+              <p className="text-lg text-slate-600 mt-1">
+                Systems Engineering Student & Infrastructure Enthusiast
+              </p>
               <p className="text-sm text-slate-500 mt-1">
-                Expected Graduation: Fall 2026 | Florida International University
+                Expected Graduation: Spring 2027| Florida International
+                University
               </p>
             </div>
             <div className="flex gap-3">
@@ -62,22 +73,39 @@ export default function Portfolio() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-slate-700 leading-relaxed">
-                Computer Science student passionate about systems engineering, infrastructure optimization, and the
-                "detective work" of debugging complex distributed systems. I thrive on mathematical problem-solving and
-                building robust, scalable solutions that other developers can rely on.
+                Computer Science student passionate about systems engineering,
+                infrastructure optimization, and the "detective work" of
+                debugging complex distributed systems. I thrive on mathematical
+                problem-solving and building robust, scalable solutions that
+                other developers can rely on.
               </p>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-slate-900 mb-2">What Drives Me</h4>
+                  <h4 className="font-semibold text-slate-900 mb-2">
+                    What Drives Me
+                  </h4>
                   <ul className="space-y-1 text-sm text-slate-600">
-                    <li>• Debugging complex system failures and performance bottlenecks</li>
-                    <li>• Building infrastructure that scales and performs reliably</li>
-                    <li>• Solving algorithmic challenges and optimization problems</li>
-                    <li>• Working with technical stakeholders on system architecture</li>
+                    <li>
+                      • Debugging complex system failures and performance
+                      bottlenecks
+                    </li>
+                    <li>
+                      • Building infrastructure that scales and performs
+                      reliably
+                    </li>
+                    <li>
+                      • Solving algorithmic challenges and optimization problems
+                    </li>
+                    <li>
+                      • Working with technical stakeholders on system
+                      architecture
+                    </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900 mb-2">Career Focus</h4>
+                  <h4 className="font-semibold text-slate-900 mb-2">
+                    Career Focus
+                  </h4>
                   <ul className="space-y-1 text-sm text-slate-600">
                     <li>• Site Reliability Engineering (SRE)</li>
                     <li>• Backend Infrastructure & Performance Engineering</li>
@@ -178,12 +206,16 @@ export default function Portfolio() {
                 <BookOpen className="w-5 h-5" />
                 Current Learning Journey
               </CardTitle>
-              <CardDescription>Focused path toward Systems/Infrastructure Engineering roles</CardDescription>
+              <CardDescription>
+                Focused path toward Systems/Infrastructure Engineering roles
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-slate-900 mb-3">Fall 2025 Coursework</h4>
+                  <h4 className="font-semibold text-slate-900 mb-3">
+                    Fall 2025 Coursework
+                  </h4>
                   <ul className="space-y-2 text-sm text-slate-600">
                     <li className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
@@ -200,7 +232,9 @@ export default function Portfolio() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900 mb-3">Spring 2026 Planned</h4>
+                  <h4 className="font-semibold text-slate-900 mb-3">
+                    Spring 2026 Planned
+                  </h4>
                   <ul className="space-y-2 text-sm text-slate-600">
                     <li className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -221,19 +255,33 @@ export default function Portfolio() {
               <Separator />
 
               <div>
-                <h4 className="font-semibold text-slate-900 mb-3">Self-Directed Learning Focus</h4>
+                <h4 className="font-semibold text-slate-900 mb-3">
+                  Self-Directed Learning Focus
+                </h4>
                 <div className="grid md:grid-cols-3 gap-4">
                   <div className="p-4 bg-slate-100 rounded-lg">
-                    <h5 className="font-medium text-slate-900 mb-2">AI Infrastructure</h5>
-                    <p className="text-xs text-slate-600">Model serving, GPU optimization, scalable AI systems</p>
+                    <h5 className="font-medium text-slate-900 mb-2">
+                      AI Infrastructure
+                    </h5>
+                    <p className="text-xs text-slate-600">
+                      Model serving, GPU optimization, scalable AI systems
+                    </p>
                   </div>
                   <div className="p-4 bg-slate-100 rounded-lg">
-                    <h5 className="font-medium text-slate-900 mb-2">Performance Engineering</h5>
-                    <p className="text-xs text-slate-600">Profiling, optimization, bottleneck analysis</p>
+                    <h5 className="font-medium text-slate-900 mb-2">
+                      Performance Engineering
+                    </h5>
+                    <p className="text-xs text-slate-600">
+                      Profiling, optimization, bottleneck analysis
+                    </p>
                   </div>
                   <div className="p-4 bg-slate-100 rounded-lg">
-                    <h5 className="font-medium text-slate-900 mb-2">Site Reliability</h5>
-                    <p className="text-xs text-slate-600">Monitoring, incident response, system design</p>
+                    <h5 className="font-medium text-slate-900 mb-2">
+                      Site Reliability
+                    </h5>
+                    <p className="text-xs text-slate-600">
+                      Monitoring, incident response, system design
+                    </p>
                   </div>
                 </div>
               </div>
@@ -249,7 +297,10 @@ export default function Portfolio() {
                 <Zap className="w-5 h-5" />
                 Featured Projects
               </CardTitle>
-              <CardDescription>Projects demonstrating systems thinking and problem-solving skills</CardDescription>
+              <CardDescription>
+                Projects demonstrating systems thinking and problem-solving
+                skills
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
@@ -259,12 +310,16 @@ export default function Portfolio() {
                       Real-time Chat Application
                       <ExternalLink className="w-4 h-4" />
                     </CardTitle>
-                    <CardDescription>Next.js • WebSockets • Performance Optimization</CardDescription>
+                    <CardDescription>
+                      Next.js • WebSockets • Performance Optimization
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-slate-600 mb-4">
-                      Built a scalable chat application with focus on debugging connection issues and optimizing message
-                      delivery performance. Implemented connection pooling and message queuing.
+                      Built a scalable chat application with focus on debugging
+                      connection issues and optimizing message delivery
+                      performance. Implemented connection pooling and message
+                      queuing.
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <Badge variant="outline">Next.js</Badge>
@@ -281,11 +336,14 @@ export default function Portfolio() {
                       Algorithm Visualizer
                       <ExternalLink className="w-4 h-4" />
                     </CardTitle>
-                    <CardDescription>React • Algorithms • Data Structures</CardDescription>
+                    <CardDescription>
+                      React • Algorithms • Data Structures
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-slate-600 mb-4">
-                      Interactive tool for visualizing sorting and graph algorithms. Focus on mathematical precision and
+                      Interactive tool for visualizing sorting and graph
+                      algorithms. Focus on mathematical precision and
                       performance analysis of different algorithmic approaches.
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -303,12 +361,15 @@ export default function Portfolio() {
                       System Monitor Dashboard
                       <ExternalLink className="w-4 h-4" />
                     </CardTitle>
-                    <CardDescription>Python • System Metrics • Real-time Monitoring</CardDescription>
+                    <CardDescription>
+                      Python • System Metrics • Real-time Monitoring
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-slate-600 mb-4">
-                      Built a system monitoring tool that tracks CPU, memory, and network metrics. Implemented alerting
-                      for performance anomalies and bottleneck detection.
+                      Built a system monitoring tool that tracks CPU, memory,
+                      and network metrics. Implemented alerting for performance
+                      anomalies and bottleneck detection.
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <Badge variant="outline">Python</Badge>
@@ -325,12 +386,15 @@ export default function Portfolio() {
                       LeetCode Solutions Archive
                       <ExternalLink className="w-4 h-4" />
                     </CardTitle>
-                    <CardDescription>Multiple Languages • Algorithms • Optimization</CardDescription>
+                    <CardDescription>
+                      Multiple Languages • Algorithms • Optimization
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-slate-600 mb-4">
-                      Comprehensive collection of optimized solutions with detailed complexity analysis. Focus on
-                      mathematical approaches and performance optimization techniques.
+                      Comprehensive collection of optimized solutions with
+                      detailed complexity analysis. Focus on mathematical
+                      approaches and performance optimization techniques.
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <Badge variant="outline">Python</Badge>
@@ -353,7 +417,9 @@ export default function Portfolio() {
                 <Bug className="w-5 h-5" />
                 My Problem-Solving Approach
               </CardTitle>
-              <CardDescription>How I tackle complex technical challenges</CardDescription>
+              <CardDescription>
+                How I tackle complex technical challenges
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-3 gap-6">
@@ -361,27 +427,36 @@ export default function Portfolio() {
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                     <span className="text-blue-600 font-bold">1</span>
                   </div>
-                  <h4 className="font-semibold text-slate-900 mb-2">Analyze & Measure</h4>
+                  <h4 className="font-semibold text-slate-900 mb-2">
+                    Analyze & Measure
+                  </h4>
                   <p className="text-sm text-slate-600">
-                    Start with data collection and metrics. Understand the system's current state before making changes.
+                    Start with data collection and metrics. Understand the
+                    system's current state before making changes.
                   </p>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                     <span className="text-green-600 font-bold">2</span>
                   </div>
-                  <h4 className="font-semibold text-slate-900 mb-2">Root Cause Investigation</h4>
+                  <h4 className="font-semibold text-slate-900 mb-2">
+                    Root Cause Investigation
+                  </h4>
                   <p className="text-sm text-slate-600">
-                    Deep dive into the underlying issues. I prefer finding the real problem over quick fixes.
+                    Deep dive into the underlying issues. I prefer finding the
+                    real problem over quick fixes.
                   </p>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
                     <span className="text-purple-600 font-bold">3</span>
                   </div>
-                  <h4 className="font-semibold text-slate-900 mb-2">Optimize & Validate</h4>
+                  <h4 className="font-semibold text-slate-900 mb-2">
+                    Optimize & Validate
+                  </h4>
                   <p className="text-sm text-slate-600">
-                    Implement solutions with measurable improvements. Always validate with concrete metrics.
+                    Implement solutions with measurable improvements. Always
+                    validate with concrete metrics.
                   </p>
                 </div>
               </div>
@@ -395,7 +470,8 @@ export default function Portfolio() {
             <CardHeader>
               <CardTitle>Let's Connect</CardTitle>
               <CardDescription>
-                Interested in discussing systems engineering, infrastructure challenges, or potential opportunities
+                Interested in discussing systems engineering, infrastructure
+                challenges, or potential opportunities
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -423,14 +499,16 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <p className="text-sm text-slate-500">
-              © 2025 Alex Rodriguez. Built with Next.js and focused on systems engineering excellence.
+              © 2025 Alex Rodriguez. Built with Next.js and focused on systems
+              engineering excellence.
             </p>
             <p className="text-sm text-slate-500">
-              Expected Graduation: Fall 2026 | Open to internships and entry-level SRE positions
+              Expected Graduation: Spring 2027| Open to internships and
+              entry-level SRE positions
             </p>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }

@@ -1,0 +1,64 @@
+{
+  "collections": {
+    "projects": {
+      "_template": {
+        "title": "",
+        "slug": "",
+        "description": "",
+        "image": "",
+        "technologies": [],
+        "highlights": [],
+        "category": "",
+        "status": "",
+        "url": "",
+        "github": "",
+        "featured": false,
+        "order": 0
+      }
+    },
+    "skills": {
+      "_template": {
+        "name": "",
+        "category": "",
+        "level": 0,
+        "learning": false,
+        "icon": "",
+        "order": 0
+      }
+    },
+    "experience": {
+      "_template": {
+        "title": "",
+        "company": "",
+        "type": "",
+        "startDate": "",
+        "endDate": "",
+        "current": false,
+        "description": "",
+        "technologies": []
+      }
+    }
+  },
+  "blocks": {
+    "siteSettings": {
+      "title": "",
+      "description": "",
+      "author": {
+        "name": "",
+        "email": "",
+        "phone": "",
+        "location": "",
+        "timezone": ""
+      },
+      "social": {
+        "github": "",
+        "linkedin": "",
+        "email": ""
+      },
+      "seo": {
+        "ogImage": "",
+        "twitterHandle": ""
+      }
+    }
+  }
+}
