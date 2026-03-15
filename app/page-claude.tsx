@@ -25,7 +25,7 @@ export default async function HomePage() {
               <Hero hero={data.hero} />
               <AboutSection />
               <SkillsSection skills={data.skills} />
-              <CredentialsSection />
+              <CredentialsSection certifications={data.certifications} />
               <ProjectsSection />
               {/* <PerformanceMetrics /> */}
               <ContactSection />

@@ -54,7 +54,7 @@ export function SkillsSection({ skills }: { skills: Skills }) {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {category.items.items.map((item) => (
+                {category.list.items.map((item) => (
                   <div
                     key={item._title}
                     className="flex items-center justify-between"

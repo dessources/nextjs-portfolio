@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { handleSmoothScroll } from "@/lib/utils";
 
 const navigationLinks = [
   { name: "About", href: "#about" },
@@ -72,6 +73,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
+                    onClick={(e) => handleSmoothScroll(e, link.href)}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.name}

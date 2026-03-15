@@ -1,5 +1,9 @@
 import { basehub } from "basehub";
-import { QueryGenqlSelection, SkillsGenqlSelection } from "basehub-types";
+import {
+  CertificationsGenqlSelection,
+  QueryGenqlSelection,
+  SkillsGenqlSelection,
+} from "basehub-types";
 
 // BaseHub client with type safety
 export const client = basehub({
@@ -10,7 +14,7 @@ const skillsQuery: SkillsGenqlSelection = {
   infrastructure: {
     icon: true,
     _title: true,
-    items: {
+    list: {
       items: {
         _title: true,
       },
@@ -19,7 +23,7 @@ const skillsQuery: SkillsGenqlSelection = {
   frameworks: {
     icon: true,
     _title: true,
-    items: {
+    list: {
       items: {
         _title: true,
       },
@@ -28,7 +32,7 @@ const skillsQuery: SkillsGenqlSelection = {
   databases: {
     icon: true,
     _title: true,
-    items: {
+    list: {
       items: {
         _title: true,
       },
@@ -37,10 +41,31 @@ const skillsQuery: SkillsGenqlSelection = {
   programmingLanguages: {
     icon: true,
     _title: true,
-    items: {
+    list: {
       items: {
         _title: true,
       },
+    },
+  },
+};
+
+const certificationsQuery: CertificationsGenqlSelection = {
+  list: {
+    _title: true,
+    items: {
+      _title: true,
+      id: true,
+      level: true,
+      provider: true,
+      icon: true,
+      logo: true,
+      category: true,
+      issueDate: true,
+      verifyUrl: true,
+      certificateFile: true,
+      description: true,
+      color: true,
+      featured: true,
     },
   },
 };
@@ -60,6 +85,7 @@ export const queries: QueryGenqlSelection[] = [
       subHeadline: true,
     },
     skills: skillsQuery,
+    certifications: certificationsQuery,
   },
 ];
 
