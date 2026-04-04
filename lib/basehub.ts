@@ -1,5 +1,6 @@
 import { basehub } from "basehub";
 import {
+  BlogpostsGenqlSelection,
   CertificationsGenqlSelection,
   QueryGenqlSelection,
   SkillsGenqlSelection,
@@ -70,6 +71,16 @@ const certificationsQuery: CertificationsGenqlSelection = {
   },
 };
 
+export const blogPostsQuery: BlogpostsGenqlSelection = {
+  items: {
+    _title: true,
+    _slug: true,
+    content: {
+      code: true,
+    },
+  },
+};
+
 export const queries: QueryGenqlSelection[] = [
   {
     settings: {
@@ -86,6 +97,7 @@ export const queries: QueryGenqlSelection[] = [
     },
     skills: skillsQuery,
     certifications: certificationsQuery,
+    blogposts: blogPostsQuery,
   },
 ];
 

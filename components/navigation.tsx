@@ -14,12 +14,17 @@ const navigationItems = [
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
   { name: "Credentials", href: "#credentials" },
+  { name: "Blog", href: "#blog" },
   { name: "Contact", href: "#contact" },
 ];
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/dessources", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/dessources", label: "LinkedIn" },
+  {
+    icon: Linkedin,
+    href: "https://linkedin.com/in/dessources",
+    label: "LinkedIn",
+  },
   { icon: Mail, href: "mailto:contact@jaemdessources.com", label: "Email" },
 ];
 
@@ -42,7 +47,8 @@ export function Navigation() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleSmoothScroll(e, item.href, setIsMenuOpen)}
-                className="text-sm font-medium hover:text-primary transition-colors cursor-pointer">
+                className="text-sm font-medium hover:text-primary transition-colors cursor-pointer"
+              >
                 {item.name}
               </Link>
             ))}
@@ -56,7 +62,8 @@ export function Navigation() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={social.label}>
+                  aria-label={social.label}
+                >
                   <social.icon className="h-4 w-4" />
                 </Link>
               </Button>
@@ -69,8 +76,13 @@ export function Navigation() {
             variant="ghost"
             size="icon"
             className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </Button>
         </div>
 
@@ -80,14 +92,18 @@ export function Navigation() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden py-4 border-t">
+            className="md:hidden py-4 border-t"
+          >
             <div className="flex flex-col space-y-4">
               {navigationItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  onClick={(e) => handleSmoothScroll(e, item.href, setIsMenuOpen)}
-                  className="text-sm font-medium hover:text-primary transition-colors cursor-pointer">
+                  onClick={(e) =>
+                    handleSmoothScroll(e, item.href, setIsMenuOpen)
+                  }
+                  className="text-sm font-medium hover:text-primary transition-colors cursor-pointer"
+                >
                   {item.name}
                 </Link>
               ))}
@@ -96,12 +112,18 @@ export function Navigation() {
               <div className="flex items-center justify-between pt-4 border-t">
                 <div className="flex items-center space-x-4">
                   {socialLinks.map((social) => (
-                    <Button key={social.label} variant="ghost" size="icon" asChild>
+                    <Button
+                      key={social.label}
+                      variant="ghost"
+                      size="icon"
+                      asChild
+                    >
                       <Link
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={social.label}>
+                        aria-label={social.label}
+                      >
                         <social.icon className="h-4 w-4" />
                       </Link>
                     </Button>

@@ -175,12 +175,35 @@ module.exports = {
         DEFAULT: {
           css: {
             maxWidth: "none",
-            color: "#374151",
+            color: "hsl(var(--foreground))",
             a: {
-              color: "#3b82f6",
+              color: "hsl(var(--primary))",
+              textDecoration: "none",
               "&:hover": {
-                color: "#2563eb",
+                textDecoration: "underline",
               },
+            },
+            code: {
+              backgroundColor: "hsl(var(--muted))",
+              color: "hsl(var(--primary))",
+              padding: "0.2rem 0.4rem",
+              borderRadius: "0.25rem",
+              fontWeight: "400",
+              fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+            },
+            "code::before": {
+              content: '""',
+            },
+            "code::after": {
+              content: '""',
+            },
+            h1: { color: "hsl(var(--foreground))" },
+            h2: { color: "hsl(var(--foreground))" },
+            h3: { color: "hsl(var(--foreground))" },
+            h4: { color: "hsl(var(--foreground))" },
+            blockquote: {
+              borderLeftColor: "hsl(var(--primary))",
+              color: "hsl(var(--muted-foreground))",
             },
           },
         },
