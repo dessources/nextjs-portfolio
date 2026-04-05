@@ -1,4 +1,3 @@
-import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import Link from "next/link";
@@ -19,7 +18,6 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <main className="min-h-screen pt-24">
-      <Navigation />
       <Pump
         draft={(await draftMode()).isEnabled}
         next={{ revalidate: 1 }}

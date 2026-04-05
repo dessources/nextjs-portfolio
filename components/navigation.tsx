@@ -6,16 +6,17 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { handleSmoothScroll } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 
 const navigationItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
-  { name: "Credentials", href: "#credentials" },
-  { name: "Blog", href: "#blog" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/#home" },
+  { name: "About", href: "/#about" },
+  { name: "Projects", href: "/#projects", standalone: "/projects" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Credentials", href: "/#credentials" },
+  { name: "Blog", href: "/#blog", standalone: "/blog" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 const socialLinks = [
@@ -30,6 +31,35 @@ const socialLinks = [
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
+  const renderLink = (item: (typeof navigationItems)[0]) => {
+    const href = !isHomePage && item.standalone ? item.standalone : item.href;
+    const isHashLink = href.includes("#");
+
+    const handleClick = (e: React.MouseEvent) => {
+      if (isHomePage && isHashLink) {
+        const hash = href.split("#")[1];
+        if (hash) {
+          handleSmoothScroll(e, `#${hash}`, setIsMenuOpen);
+        }
+      } else if (setIsMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    return (
+      <Link
+        key={item.name}
+        href={href}
+        onClick={handleClick}
+        className="text-sm font-medium hover:text-primary transition-colors cursor-pointer"
+      >
+        {item.name}
+      </Link>
+    );
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
@@ -42,16 +72,7 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navigationItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={(e) => handleSmoothScroll(e, item.href, setIsMenuOpen)}
-                className="text-sm font-medium hover:text-primary transition-colors cursor-pointer"
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigationItems.map(renderLink)}
           </div>
 
           {/* Desktop Social Links & Theme Toggle */}
@@ -95,18 +116,7 @@ export function Navigation() {
             className="md:hidden py-4 border-t"
           >
             <div className="flex flex-col space-y-4">
-              {navigationItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) =>
-                    handleSmoothScroll(e, item.href, setIsMenuOpen)
-                  }
-                  className="text-sm font-medium hover:text-primary transition-colors cursor-pointer"
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navigationItems.map(renderLink)}
 
               {/* Mobile Social Links & Theme Toggle */}
               <div className="flex items-center justify-between pt-4 border-t">

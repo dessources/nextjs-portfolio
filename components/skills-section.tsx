@@ -13,7 +13,6 @@ export function SkillsSection({ skills }: { skills: Skills }) {
     skills.databases,
     skills.infrastructure,
   ];
-  skillCategories.forEach((item) => console.dir(item, { depth: null }));
   return (
     <section id="skills" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">

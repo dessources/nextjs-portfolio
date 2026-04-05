@@ -1,4 +1,3 @@
-import { Navigation } from "@/components/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
@@ -10,7 +9,6 @@ import { blogListQueries } from "@/lib/basehub";
 export default async function BlogPage() {
   return (
     <main className="min-h-screen pt-24">
-      <Navigation />
       <div className="container mx-auto px-4 py-12">
         <header className="mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
