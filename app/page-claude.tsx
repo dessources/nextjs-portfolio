@@ -9,7 +9,7 @@ import { ContactSection } from "@/components/contact-section";
 
 import { Pump } from "basehub/react-pump";
 import { draftMode } from "next/headers";
-import { queries } from "@/lib/basehub";
+import { homepageQueries } from "@/lib/basehub";
 
 export default async function HomePage() {
   return (
@@ -17,7 +17,7 @@ export default async function HomePage() {
       <Pump
         draft={(await draftMode()).isEnabled}
         next={{ revalidate: 1 }}
-        queries={queries}
+        queries={homepageQueries}
       >
         {async ([data]) => {
           "use server";
@@ -28,7 +28,7 @@ export default async function HomePage() {
               <SkillsSection skills={data.skills} />
               <CredentialsSection certifications={data.certifications} />
               <ProjectsSection />
-              <BlogSection />
+              <BlogSection posts={data.blog.posts.items} />
               {/* <PerformanceMetrics /> */}
               <ContactSection />
             </>

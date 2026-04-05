@@ -1,5 +1,4 @@
 import { Navigation } from "@/components/navigation";
-// import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import Link from "next/link";
@@ -8,25 +7,41 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { Pump } from "basehub/react-pump";
 import { draftMode } from "next/headers";
-import { queries } from "@/lib/basehub";
+import { getBlogPostQuery } from "@/lib/basehub";
 import { mdxComponents } from "@/components/mdx-components";
 
-export default async function BlogPostPage() {
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
+
   return (
     <main className="min-h-screen pt-24">
       <Navigation />
       <Pump
         draft={(await draftMode()).isEnabled}
         next={{ revalidate: 1 }}
-        queries={queries}
+        queries={getBlogPostQuery(slug)}
       >
         {async ([data]) => {
           "use server";
-          const post = data.blogposts.items[0];
+          const post = data.blog.posts.items[0];
 
           if (!post) {
             notFound();
           }
+
+          const category = post.tags?.[0]?._title || "Uncategorized";
+          const readTime = "5 min read";
+          const date = post.publishDate
+            ? new Date(post.publishDate).toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })
+            : "Recent";
 
           return (
             <article className="container mx-auto px-4 py-12 max-w-3xl">
@@ -40,14 +55,15 @@ export default async function BlogPostPage() {
               <header className="mb-12">
                 <div className="flex items-center gap-4 mb-6">
                   <span className="px-3 py-1 bg-primary/10 text-primary rounded-md text-sm font-medium">
-                    CMS Post
+                    {category}
                   </span>
                   <div className="flex items-center text-sm text-muted-foreground">
                     <Calendar className="w-4 h-4 mr-2" />
-                    Latest
+                    {date}
                   </div>
                   <div className="flex items-center text-sm text-muted-foreground">
-                    <Clock className="w-4 h-4 mr-2" />5 min read
+                    <Clock className="w-4 h-4 mr-2" />
+                    {readTime}
                   </div>
                 </div>
 
@@ -56,16 +72,18 @@ export default async function BlogPostPage() {
                 </h1>
 
                 <div className="flex flex-wrap gap-2">
-                  <span className="flex items-center text-xs text-muted-foreground bg-muted px-3 py-1 rounded-full">
-                    <Tag className="w-3 h-3 mr-2" />
-                    BaseHub
-                  </span>
+                  {post.tags?.map((tag) => (
+                    <span key={tag.slug} className="flex items-center text-xs text-muted-foreground bg-muted px-3 py-1 rounded-full">
+                      <Tag className="w-3 h-3 mr-2" />
+                      {tag._title}
+                    </span>
+                  ))}
                 </div>
               </header>
 
               <div className="prose prose-lg dark:prose-invert max-w-none prose-code:unset prose-code:before:content-none prose-code:after:content-none">
                 <MDXRemote
-                  source={post.content.code}
+                  source={post.contentMarkdown.code}
                   //@ts-ignore
                   components={mdxComponents}
                   options={{
@@ -79,7 +97,6 @@ export default async function BlogPostPage() {
           );
         }}
       </Pump>
-      {/* <Footer /> */}
     </main>
   );
 }

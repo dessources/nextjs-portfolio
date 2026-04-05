@@ -3,8 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["jaemdessources.com"],
-    formats: ["image/webp", "image/avif"],
+    domains: ["jaemdessources.com", "assets.basehub.com"],
+    formats: ["image/webp", "image/webp"],
   },
   // Performance optimizations
   compiler: {

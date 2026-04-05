@@ -1,9 +1,9 @@
 import { basehub } from "basehub";
 import {
-  BlogpostsGenqlSelection,
-  CertificationsGenqlSelection,
   QueryGenqlSelection,
   SkillsGenqlSelection,
+  CertificationsGenqlSelection,
+  PostsItemGenqlSelection,
 } from "basehub-types";
 
 // BaseHub client with type safety
@@ -71,163 +71,79 @@ const certificationsQuery: CertificationsGenqlSelection = {
   },
 };
 
-export const blogPostsQuery: BlogpostsGenqlSelection = {
-  items: {
+export const blogPostMetaQuery: PostsItemGenqlSelection = {
+  _title: true,
+  _slug: true,
+  _id: true,
+  excerpt: true,
+  publishDate: true,
+  tags: {
     _title: true,
-    _slug: true,
-    content: {
-      code: true,
+    slug: true,
+  },
+  authors: {
+    name: true,
+    profilePicture: {
+      url: true,
     },
   },
 };
 
-export const queries: QueryGenqlSelection[] = [
+export const homepageQueries: QueryGenqlSelection[] = [
   {
-    settings: {
-      author: {
-        _title: true,
-      },
-      social: {
-        _title: true,
-      },
-    },
     hero: {
       headline: true,
       subHeadline: true,
+      heroImage: {
+        on_BlockImage: {
+          url: true,
+        },
+      },
     },
     skills: skillsQuery,
     certifications: certificationsQuery,
-    blogposts: blogPostsQuery,
+    blog: {
+      posts: {
+        __args: {
+          first: 3,
+          orderBy: "_sys_createdAt__DESC", // Fallback if publishDate__DESC is not in Enum
+        },
+        items: blogPostMetaQuery,
+      },
+    },
   },
 ];
 
-// Query fragments for reusable field selections
-// export const projectFragment = {
-//   _sys: {
-//     id: true,
-//     slug: true,
-//   },
-//   title: true,
-//   description: true,
-//   image: true,
-//   technologies: true,
-//   highlights: true,
-//   category: true,
-//   status: true,
-//   url: true,
-//   github: true,
-//   featured: true,
-//   order: true,
-// } as const
+export const blogListQueries: QueryGenqlSelection[] = [
+  {
+    blog: {
+      posts: {
+        __args: {
+          orderBy: "_sys_createdAt__DESC",
+        },
+        items: blogPostMetaQuery,
+      },
+    },
+  },
+];
 
-// export const skillFragment = {
-//   _sys: {
-//     id: true,
-//     slug: true,
-//   },
-//   name: true,
-//   category: true,
-//   level: true,
-//   learning: true,
-//   icon: true,
-//   order: true,
-// } as const
-
-// export const siteSettingsFragment = {
-//   title: true,
-//   description: true,
-//   author: {
-//     name: true,
-//     email: true,
-//     phone: true,
-//     location: true,
-//     timezone: true,
-//   },
-//   social: {
-//     github: true,
-//     linkedin: true,
-//     email: true,
-//   },
-//   seo: {
-//     ogImage: true,
-//     twitterHandle: true,
-//   },
-// } as const
-
-// // Type-safe query functions
-// export async function getProjects() {
-//   const { projects } = await client.query({
-//     projects: {
-//       __args: {
-//         orderBy: 'order',
-//       },
-//       items: projectFragment,
-//     },
-//   })
-
-//   return projects.items
-// }
-
-// export async function getFeaturedProjects() {
-//   const { projects } = await client.query({
-//     projects: {
-//       __args: {
-//         orderBy: 'order',
-//         filter: {
-//           featured: {
-//             eq: true,
-//           },
-//         },
-//       },
-//       items: projectFragment,
-//     },
-//   })
-
-//   return projects.items
-// }
-
-// export async function getProjectBySlug(slug: string) {
-//   const { projects } = await client.query({
-//     projects: {
-//       __args: {
-//         filter: {
-//           _sys: {
-//             slug: {
-//               eq: slug,
-//             },
-//           },
-//         },
-//         first: 1,
-//       },
-//       items: projectFragment,
-//     },
-//   })
-
-//   return projects.items[0] || null
-// }
-
-// export async function getSkills() {
-//   const { skills } = await client.query({
-//     skills: {
-//       __args: {
-//         orderBy: 'category',
-//       },
-//       items: skillFragment,
-//     },
-//   })
-
-//   return skills.items
-// }
-
-// export async function getSiteSettings() {
-//   const { siteSettings } = await client.query({
-//     siteSettings: siteSettingsFragment,
-//   })
-
-//   return siteSettings
-// }
-
-// Types derived from BaseHub
-// export type Project = Awaited<ReturnType<typeof getProjects>>[0]
-// export type Skill = Awaited<ReturnType<typeof getSkills>>[0]
-// export type SiteSettings = Awaited<ReturnType<typeof getSiteSettings>>
+export const getBlogPostQuery = (slug: string): QueryGenqlSelection[] => [
+  {
+    blog: {
+      posts: {
+        __args: {
+          filter: {
+            _slug: { eq: slug },
+          },
+          first: 1,
+        },
+        items: {
+          ...blogPostMetaQuery,
+          contentMarkdown: {
+            code: true,
+          },
+        },
+      },
+    },
+  },
+];

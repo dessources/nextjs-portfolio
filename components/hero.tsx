@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { handleSmoothScroll } from "@/lib/utils";
+// import { handleSmoothScroll } from "@/lib/utils";
 import type { Hero } from "basehub-types";
 
 export function Hero({ hero }: { hero: Hero }) {
@@ -29,9 +29,7 @@ export function Hero({ hero }: { hero: Hero }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Building{" "}
-                <span className="text-primary">Performant Systems</span> That
-                Scale
+                {hero.headline}
               </motion.h1>
               <motion.p
                 className="text-xl text-muted-foreground max-w-lg"
@@ -51,11 +49,11 @@ export function Hero({ hero }: { hero: Hero }) {
             >
               <Button asChild size="lg" className="group">
                 <Link
-                  href="#projects"
-                  onClick={(e) => handleSmoothScroll(e, "#projects")}
+                  href="mailto:jdess010@fiu.edu"
+                  // onClick={(e) => handleSmoothScroll(e, "#projects")}
                 >
-                  View My Projects
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  Contact Me
+                  <Mail className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
@@ -88,7 +86,7 @@ export function Hero({ hero }: { hero: Hero }) {
               {/* Profile image container */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-background shadow-2xl">
                 <Image
-                  src="/Right-profile.jpeg"
+                  src={hero.heroImage.url}
                   alt="Jaem Dessources - Systems Engineer"
                   width={320}
                   height={320}
