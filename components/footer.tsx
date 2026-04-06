@@ -19,7 +19,7 @@ const socialLinks = [
     href: "https://linkedin.com/in/dessources",
     label: "LinkedIn",
   },
-  { icon: Mail, href: "mailto:contact@jaemdessources.com", label: "Email" },
+  { icon: Mail, href: "mailto:jdess010@fiu.edu", label: "Email" },
 ];
 
 const projectLinks = [
@@ -116,10 +116,10 @@ export function Footer() {
                 Open to internships and technical discussions
               </p>
               <Link
-                href="mailto:contact@jaemdessources.com"
+                href="mailto:jdess010@fiu.edu"
                 className="text-sm text-primary hover:underline"
               >
-                contact@jaemdessources.com
+                jdess010@fiu.edu
               </Link>
             </div>
             <div className="text-xs text-muted-foreground">

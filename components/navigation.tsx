@@ -26,7 +26,7 @@ const socialLinks = [
     href: "https://linkedin.com/in/dessources",
     label: "LinkedIn",
   },
-  { icon: Mail, href: "mailto:contact@jaemdessources.com", label: "Email" },
+  { icon: Mail, href: "mailto:jdess010@fiu.edu", label: "Email" },
 ];
 
 export function Navigation() {

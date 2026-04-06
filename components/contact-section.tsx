@@ -18,8 +18,8 @@ const contactMethods = [
     icon: Mail,
     title: "Email",
     description: "Best for project inquiries and collaboration",
-    value: "contact@jaemdessources.com",
-    href: "mailto:contact@jaemdessources.com",
+    value: "jdess010@fiu.edu",
+    href: "mailto:jdess010@fiu.edu",
     primary: true,
   },
   {
