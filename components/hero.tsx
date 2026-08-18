@@ -6,9 +6,14 @@ import { Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 // import { handleSmoothScroll } from "@/lib/utils";
-import type { Hero } from "basehub-types";
+import type { Hero, Settings } from "basehub-types";
 
-export function Hero({ hero }: { hero: Hero }) {
+export function Hero({ hero, settings }: { hero: Hero; settings: Settings }) {
+  const personalInfo = settings.personalInfo.items;
+
+  const resumeLink = personalInfo.find((item) => item._title == "resume")
+    ?.text as string;
+
   return (
     <section
       id="home"
@@ -57,12 +62,7 @@ export function Hero({ hero }: { hero: Hero }) {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link
-                  target="_blank"
-                  href={
-                    "https://drive.google.com/file/d/1Av_lAg00CgQRie3Xh_lp_o9LYaUsu6sB/view?usp=sharing"
-                  }
-                >
+                <Link target="_blank" href={resumeLink}>
                   My résumé
                 </Link>
               </Button>
@@ -86,7 +86,7 @@ export function Hero({ hero }: { hero: Hero }) {
               {/* Profile image container */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-background shadow-2xl">
                 <Image
-                  src={hero.heroImage.url}
+                  src={hero.heroImage?.url as string}
                   alt="Jaem Dessources - Systems Engineer"
                   width={320}
                   height={320}

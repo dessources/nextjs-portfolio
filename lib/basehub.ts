@@ -4,12 +4,20 @@ import {
   SkillsGenqlSelection,
   CertificationsGenqlSelection,
   PostsItemGenqlSelection,
+  PersonalInfoGenqlSelection,
 } from "basehub-types";
 
 // BaseHub client with type safety
 export const client = basehub({
   token: process.env.BASEHUB_TOKEN!,
 });
+
+const personalInfoQuery: PersonalInfoGenqlSelection = {
+  items: {
+    _title: true,
+    text: true,
+  },
+};
 
 const skillsQuery: SkillsGenqlSelection = {
   infrastructure: {
@@ -91,6 +99,10 @@ export const blogPostMetaQuery: PostsItemGenqlSelection = {
 
 export const homepageQueries: QueryGenqlSelection[] = [
   {
+    settings: {
+      personalInfo: personalInfoQuery,
+    },
+
     hero: {
       headline: true,
       subHeadline: true,

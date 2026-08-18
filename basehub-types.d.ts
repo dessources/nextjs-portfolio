@@ -384,7 +384,7 @@ export interface Hero {
     _sys: BlockDocumentSys
     _title: Scalars['String']
     headline: Scalars['String']
-    heroImage: MediaBlockUnion
+    heroImage: (MediaBlockUnion | null)
     subHeadline: Scalars['String']
     __typename: 'Hero'
 }

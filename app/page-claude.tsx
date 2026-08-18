@@ -23,7 +23,7 @@ export default async function HomePage() {
           "use server";
           return (
             <>
-              <Hero hero={data.hero} />
+              <Hero hero={data.hero} settings={data.settings} />
               <AboutSection />
               <SkillsSection skills={data.skills} />
               <CredentialsSection certifications={data.certifications} />
