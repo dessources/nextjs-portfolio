@@ -84,23 +84,20 @@ export function ContactSection() {
             {contactMethods.map((method) => (
               <Card
                 key={method.title}
-                className={`group hover:shadow-md transition-all duration-300 ${
-                  method.primary ? "border-primary/30" : ""
-                }`}
+                className={`group hover:shadow-md transition-all duration-300 ${method.primary ? "border-primary/30" : ""
+                  }`}
               >
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div
-                      className={`p-3 rounded-lg ${
-                        method.primary ? "bg-primary/10" : "bg-secondary"
-                      }`}
+                      className={`p-3 rounded-lg ${method.primary ? "bg-primary/10" : "bg-secondary"
+                        }`}
                     >
                       <method.icon
-                        className={`h-5 w-5 ${
-                          method.primary
+                        className={`h-5 w-5 ${method.primary
                             ? "text-primary"
                             : "text-muted-foreground"
-                        }`}
+                          }`}
                       />
                     </div>
                     <div className="flex-1">
@@ -163,7 +160,7 @@ export function ContactSection() {
                 </p>
                 <Button variant="outline" size="sm" disabled>
                   <Calendar className="mr-2 h-4 w-4" />
-                  Launching Spring 2026
+                  Launching Fall 2026
                 </Button>
               </CardContent>
             </Card>
